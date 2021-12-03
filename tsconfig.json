@@ -20,7 +20,7 @@
 
     "baseUrl": "./",
     "paths": {
-      "@scss/*": ["scss/*"]
+      "@/*": ["src/*"]
     }
   },
   "include": ["src"]
