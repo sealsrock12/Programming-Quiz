@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [preact()],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname + "./src"),
+      "@": path.join(__dirname, "./src"),
       react: "preact-compat",
       "react-dom": "preact-compat"
     }
