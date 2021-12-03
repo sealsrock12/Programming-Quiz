@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pageNot,
+.found {
+  font-size: 6rem;
+  font-family: "Space Mono";
+  text-align: center;
+}
+
+@media (max-width: 500px), (max-height: 480px) {
+  .pageNot,
+  .found {
+    margin: 0 !important;
+
+    font-size: 3.5rem;
+  }
+}
+
+.found {
+  margin-top: -2rem;
+}
+
+.description {
+  text-align: center;
+  margin: 0 0.5rem;
+}

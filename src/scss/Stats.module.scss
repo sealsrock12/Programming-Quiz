@@ -1,0 +1,48 @@
+.colorsHelperContainer {
+  margin: 2rem 0 0 2rem;
+}
+.colorHelper {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.blueSquare,
+.greenSquare,
+.orangeSquare,
+.redSquare {
+  display: inline-block;
+  width: 0.9em;
+  height: 0.9em;
+  margin: 0px 5px;
+}
+
+.blueSquare {
+  background-color: var(--color-blue);
+}
+
+.greenSquare {
+  background-color: var(--color-green);
+}
+
+.orangeSquare {
+  background-color: var(--color-orange);
+}
+
+.redSquare {
+  background-color: var(--color-red);
+}
+
+.chartContainer {
+  margin: 5rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.chart {
+  width: 25vw;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}

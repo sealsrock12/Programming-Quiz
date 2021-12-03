@@ -1,0 +1,47 @@
+.menu {
+  grid-template-columns: repeat(4, 1fr);
+  display: grid;
+  width: 100vw;
+}
+
+#hamburger {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+#hamburgerContainer {
+  margin-left: 0.75rem;
+  margin-top: 0.75rem;
+  transition: transform 0.2s;
+  display: inline-block;
+  display: none;
+  width: fit-content;
+}
+
+.rotate {
+  transform: rotate(90deg);
+}
+
+.OPEN {
+  display: grid !important;
+}
+
+.error {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  #hamburgerContainer {
+    display: block;
+  }
+
+  .error {
+    display: none;
+  }
+
+  .menu {
+    grid-template-columns: 1fr;
+    display: none;
+    margin-top: 0.5rem;
+  }
+}

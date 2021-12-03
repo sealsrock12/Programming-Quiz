@@ -1,0 +1,27 @@
+.customFooter {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.copyright {
+  display: inline;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.and {
+  @media (max-width: 426px) {
+    font-size: 0;
+
+    &::before {
+      content: ", ";
+      font-size: 11px !important;
+    }
+  }
+
+  &::before {
+    font-size: 0;
+  }
+}

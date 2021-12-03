@@ -1,0 +1,58 @@
+.problemContainer {
+  width: 80vw;
+  overflow: auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  align-self: center;
+
+  &::-webkit-scrollbar-thumb {
+    background-color: hsl(220, 9%, 87%);
+    border: 4px solid transparent;
+    border-radius: 8px;
+    background-clip: padding-box;
+  }
+
+  &::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  @media (max-width: 640px) {
+    width: 100vw;
+    align-items: flex-start;
+    align-self: flex-start;
+  }
+}
+
+.problem {
+  flex: 1;
+}
+
+.optionsContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.submit {
+  margin-right: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 1036px) {
+  .problemParent {
+    margin-top: 3.5rem;
+  }
+}
