@@ -9,7 +9,11 @@
   "dependencies": {
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",
-    "sass": "^1.44.0"
+    "react-router-dom": "6",
+    "sass": "^1.44.0",
+    "uuid": "^8.3.2",
+    "react-markdown": "^7.0.1",
+    "react-minimal-pie-chart": "^8.2.0"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.0.0",
