@@ -1,4 +1,4 @@
-import problems from "lib/problems";
+import problems from "@/lib/problems";
 
 export function randomProperty(obj) {
   const keys = Object.keys(obj);

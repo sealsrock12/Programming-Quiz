@@ -1,10 +1,8 @@
 import styles from "@/styles/Play.module.scss";
 import Button from "@/components/Button";
 
-import { getItem } from "@/lib/storage";
-
 function submit() {
-  console.log(getItem("problem"));
+  console.log(localStorage.getItem("problem"));
 }
 
 export default function Submit() {

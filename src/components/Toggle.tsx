@@ -1,12 +1,6 @@
-import styles from "styles/Toggle.module.scss";
-
-import storage from "@/lib/storage";
+import styles from "@/styles/component-styles/Toggle.module.scss";
 
 export default function Toggle({ name, checked = true }) {
-  // if (checked) {
-  //   localStorage.setItem("name", "true");
-  // }
-
   return (
     <div className={styles.toggle}>
       <label className={styles.toggleWrapper}>

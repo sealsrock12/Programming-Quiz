@@ -2,7 +2,6 @@ import styles from "@/styles/Play.module.scss";
 
 import { v4 as uuidv4 } from "uuid";
 import ReactMarkdown from "react-markdown";
-import { setItem } from "@/lib/storage";
 import { generator } from "@/lib/generator";
 
 function Problem() {
@@ -11,7 +10,7 @@ function Problem() {
   const options = problemInfo.options;
   const solution = problemInfo.solution;
 
-  setItem("problem", problem);
+  localStorage.setItem("problem", problem);
 
   return (
     <>

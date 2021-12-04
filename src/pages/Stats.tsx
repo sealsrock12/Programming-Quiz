@@ -1,6 +1,5 @@
 import { PieChart } from "react-minimal-pie-chart";
 
-import Meta from "@/components/Meta";
 import Menu from "@/components/Menu";
 
 import styles from "@/styles/Stats.module.scss";
@@ -8,7 +7,6 @@ import styles from "@/styles/Stats.module.scss";
 export default function Stats() {
   return (
     <main className={styles.main}>
-      <Meta page="Stats" />
       <Menu statsSelected />
 
       <div className={styles.colorsHelperContainer}>
@@ -33,12 +31,12 @@ export default function Stats() {
         <PieChart
           data={[
             {
-              title: "Correct on first attempt",
+              title: "Correct on your first attempt",
               value: 198,
               color: "var(--color-blue)"
             },
             {
-              title: "Correct on second attempt",
+              title: "Correct on your second attempt",
               value: 150,
               color: "var(--color-green)"
             },

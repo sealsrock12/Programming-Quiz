@@ -39,7 +39,11 @@
 }
 
 .chart {
-  width: 25vw;
+  width: 25rem;
+
+  @media (max-width: 425px) {
+    width: 20rem;
+  }
 }
 
 .main {
