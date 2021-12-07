@@ -27,7 +27,7 @@ export default function Menu({
         />
       </div>
 
-      <nav ref={menuRef} className={styles.menu}>
+      <nav ref={menuRef} className={[styles.menu, "menu-container"].join(" ")}>
         <Button
           className={["NOT-round", styles.navLink].join(" ")}
           link

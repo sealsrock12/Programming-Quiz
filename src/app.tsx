@@ -9,6 +9,11 @@ import Settings from "@/pages/Settings";
 import Stats from "@/pages/Stats";
 import NotFound from "@/pages/404";
 
+// import no dark mode stylesheet, if user choose so
+if (localStorage.getItem("dark-mode") === "false") {
+  import("@/styles/global-styles/no-dark.scss").then();
+}
+
 function App() {
   return (
     <>

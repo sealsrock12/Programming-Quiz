@@ -9,10 +9,12 @@
   color: white;
   text-align: center;
   cursor: pointer;
+  transition: 0.3s ease background-color;
 
   &:hover {
-    border-color: var(--hoverborder);
+    border-color: var(--hover-border);
     background-color: hsla(0, 0%, 100%, 0.1);
+    transition: 0.3s ease background-color;
   }
 
   a {

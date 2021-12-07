@@ -7,22 +7,25 @@ export default function Button({
   className = "",
   type,
   selected,
-  onClick
+  onClick,
+  title
 }) {
   return link ? (
     <a
-      className={`${styles.btn} ${className} ${
-        selected ? `${styles.selected}` : ""
-      }`}
+      className={[
+        `${styles.btn} ${className} ${selected ? `${styles.selected}` : ""}`,
+        selected ? "link-selected" : ""
+      ].join(" ")}
       href={href}
     >
       {children}
     </a>
   ) : (
     <button
-      className={`${styles.btn} ${className} ${
-        selected ? styles.selected : ""
-      }`}
+      className={[
+        `${styles.btn} ${className} ${selected ? styles.selected : ""}`,
+        title === "submit" ? "submit-button" : ""
+      ].join(" ")}
       type={type}
       onClick={onClick}
     >
