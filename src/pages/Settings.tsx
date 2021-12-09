@@ -26,7 +26,8 @@ export default function Settings() {
   let darkMode = localStorage.getItem("dark-mode");
 
   if (!darkMode) {
-    darkMode = localStorage.setItem("dark-mode", "true");
+    localStorage.setItem("dark-mode", "true");
+    darkMode = "true";
   }
 
   return (

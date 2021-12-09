@@ -11,12 +11,12 @@ import { useState } from "react";
 export default function Play() {
   function submit() {
     // submit button handler
-    const problem = localStorage.getItem("problem");
-    const options = localStorage.getItem("options");
-    const answer = parseInt(localStorage.getItem("answer"));
-    const solution = localStorage.getItem("solution");
+    const problemInfo = JSON.parse(localStorage.getItem("problem-info"));
+    const problem = problemInfo.problem;
+    const options = problemInfo.options;
+    const answer = parseInt(problemInfo.answer);
+    const solution = problemInfo.solution;
 
-    // console.log(problem, options, answer, solution);
     // determine which checkbox was checked
     const checkboxes = document.querySelectorAll("input[name='option']");
 
@@ -36,32 +36,26 @@ export default function Play() {
       console.log("incorrect");
     }
 
-    // document.querySelectorAll(".problem-container > p")[0].innerHTML = solution;
-    setProblemInfo([solution, options]);
+    console.log(solution);
+    console.log(options);
+
+    problemInfo.pageText = solution;
+    console.log(problemInfo.pageText);
+
+    setProblemInfo(problemInfo);
   }
 
   const problemInfoGenerate = generator();
-  const problem = problemInfoGenerate.problem;
-  const options = problemInfoGenerate.options;
-  const answer = problemInfoGenerate.answer;
-  const solution = problemInfoGenerate.solution;
 
-  const [problemInfo, setProblemInfo] = useState([
-    problem,
-    Array.from(options)
-  ]);
-
-  localStorage.setItem("problem", problem);
-  localStorage.setItem("options", options);
-  localStorage.setItem("answer", answer);
-  localStorage.setItem("solution", solution);
+  const [problemInfo, setProblemInfo] = useState(problemInfoGenerate);
+  localStorage.setItem("problem-info", JSON.stringify(problemInfoGenerate));
 
   return (
     <main className={styles.main}>
       <Menu playSelected />
 
       <article className={styles.problemContainer}>
-        <Problem problemInfo={problemInfo} />
+        <Problem problemInfoGenerate={problemInfo} />
 
         <div className={styles.controls}>
           <Button className={styles.submit} title="submit" onClick={submit}>

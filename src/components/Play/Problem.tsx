@@ -3,19 +3,15 @@ import styles from "@/styles/Play.module.scss";
 import { v4 as uuidv4 } from "uuid";
 import ReactMarkdown from "react-markdown";
 
-function Problem({ problemInfo }) {
-  console.log(problemInfo);
-  console.log(problemInfo[1]);
-  const main = problemInfo[1];
-
+function Problem({ problemInfoGenerate }) {
   return (
     <>
       <div className={[styles.problem, "problem-container"].join(" ")}>
-        <ReactMarkdown>{problemInfo[0]}</ReactMarkdown>
+        <ReactMarkdown>{problemInfoGenerate.pageText}</ReactMarkdown>
       </div>
       <div className={styles.optionsContainer}>
         <div className={styles.options}>
-          {problemInfo[1].map((option, index) => {
+          {problemInfoGenerate.options.map((option, index) => {
             return (
               <div key={uuidv4()} className={styles.option}>
                 <input

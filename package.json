@@ -11,6 +11,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.0.0-beta3",
     "@fortawesome/free-solid-svg-icons": "^6.0.0-beta3",
     "@fortawesome/react-fontawesome": "^0.1.16",
+    "@types/react": "^17.0.37",
     "babel-plugin-macros": "^3.1.0",
     "preact": "^10.5.13",
     "preact-compat": "^3.19.0",

@@ -14,11 +14,13 @@ export function generator() {
   const options = problemInfo[1][0];
   const answer = problemInfo[1][1];
   const solution = problemInfo[1][2];
+  const pageText = problemInfo[0];
 
   return {
     problem: problem,
     options: options,
     answer: answer,
-    solution: solution
+    solution: solution,
+    pageText: pageText
   };
 }
