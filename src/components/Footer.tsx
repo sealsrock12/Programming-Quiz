@@ -8,7 +8,7 @@ export default function Footer() {
       <span>
         <span className={styles.copyright}>Copyright</span> &copy; 2021
         <span>
-          <a href="https://github.com/bypassspace"> BypassSpace</a>
+          <a href="https://github.com/cubingsoda"> CubingSoda</a>
         </span>
         <span className={styles.and}> and </span>
         <span>
