@@ -1,6 +1,18 @@
 import styles from "@/styles/component-styles/Button.module.scss";
+import { FunctionalComponent } from "preact";
 
-export default function Button({
+interface Props {
+  children: any;
+  link?: any;
+  href?: any;
+  className?: any;
+  selected?: any;
+  type?: any;
+  onClick?: any;
+  title?: any;
+}
+
+const Button: FunctionalComponent<Props> = ({
   children,
   link,
   href,
@@ -9,7 +21,7 @@ export default function Button({
   selected,
   onClick,
   title
-}) {
+}) => {
   return link ? (
     <a
       className={[
@@ -32,4 +44,7 @@ export default function Button({
       {children}
     </button>
   );
-}
+};
+// )
+
+export default Button;

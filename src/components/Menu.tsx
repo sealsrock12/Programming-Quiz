@@ -1,13 +1,22 @@
 import styles from "@/styles/component-styles/Menu.module.scss";
 import Button from "@/components/Button";
-import React, { useRef, useEffect } from "react";
 
-export default function Menu({
+import { FunctionalComponent } from "preact";
+import React, { useRef, useEffect } from "preact/hooks";
+
+interface Props {
+  playSelected?: boolean;
+  statsSelected?: boolean;
+  settingsSelected?: boolean;
+  bugSelected?: boolean;
+}
+
+const Menu: FunctionalComponent<Props> = ({
   playSelected,
   statsSelected,
   settingsSelected,
   bugSelected
-}) {
+}) => {
   const menuRef = useRef();
   const hamburgerRef = useRef();
   const hamburgerClick = _ => {
@@ -52,15 +61,9 @@ export default function Menu({
         >
           SETTINGS
         </Button>
-        <Button
-          className={["NOT-round", styles.navLink].join(" ")}
-          link
-          href="/bug-report"
-          selected={bugSelected}
-        >
-          REPORT <span className={styles.error}>ERROR</span>
-        </Button>
       </nav>
     </div>
   );
-}
+};
+
+export default Menu;

@@ -40,7 +40,7 @@ export default function Stats() {
               value: 150,
               color: "var(--color-green)"
             },
-            { title: "Incorrect", value: 50, color: "var(--color-orange)" },
+            { title: "Incorrect", value: 100, color: "var(--color-orange)" },
             { title: "Gave up", value: 30, color: "var(--color-red)" }
           ]}
           className={styles.chart}

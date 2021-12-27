@@ -37,7 +37,7 @@ const problems = {
         "Pending, Complete, Rejected, Resolved"
       ],
       1,
-      "They are: `Pending, Fulfilled, Rejected, Settled`"
+      "They are: `Pending, Fulfilled, Rejected, Settled`."
     ]
   },
   py: {

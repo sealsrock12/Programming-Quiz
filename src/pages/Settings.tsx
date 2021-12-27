@@ -33,6 +33,7 @@ export default function Settings() {
   return (
     <main className={styles.main}>
       <Menu settingsSelected />
+
       <section className={styles.settingsWrapper}>
         <div className={styles.settingRow}>
           <span>Dark Mode</span>

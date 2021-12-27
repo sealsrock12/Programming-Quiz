@@ -21,6 +21,7 @@ export function generator() {
     options: options,
     answer: answer,
     solution: solution,
-    pageText: pageText
+    pageText: pageText,
+    atProblem: true
   };
 }

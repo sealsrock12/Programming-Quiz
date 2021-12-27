@@ -6,16 +6,19 @@ import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Play.module.scss";
 
-import { useState } from "react";
+import { useState } from "preact/hooks";
 
 export default function Play() {
   function submit() {
     // submit button handler
-    const problemInfo = JSON.parse(localStorage.getItem("problem-info"));
+    const problemInfo = JSON.parse(
+      localStorage.getItem("problem-info") || "{}"
+    );
     const problem = problemInfo.problem;
     const options = problemInfo.options;
     const answer = parseInt(problemInfo.answer);
     const solution = problemInfo.solution;
+    const atProblem = problemInfo.atProblem;
 
     // determine which checkbox was checked
     const checkboxes = document.querySelectorAll("input[name='option']");
@@ -40,6 +43,7 @@ export default function Play() {
     console.log(options);
 
     problemInfo.pageText = solution;
+    problemInfo.atProblem = false;
     console.log(problemInfo.pageText);
 
     setProblemInfo(problemInfo);
@@ -55,7 +59,7 @@ export default function Play() {
       <Menu playSelected />
 
       <article className={styles.problemContainer}>
-        <Problem problemInfoGenerate={problemInfo} />
+        <Problem problemInfo={problemInfo} />
 
         <div className={styles.controls}>
           <Button className={styles.submit} title="submit" onClick={submit}>
