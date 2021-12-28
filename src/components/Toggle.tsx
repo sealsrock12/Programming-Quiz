@@ -1,27 +1,38 @@
 import styles from "@/styles/component-styles/Toggle.module.scss";
 
-export default function Toggle({ name, checked = true }) {
-  const refreshAfterToggle = {
-    "dark-mode": true
-  };
+import { isJSON, defaultSettings } from "@/lib/site";
 
+function onChange(e, name) {
+  console.log(e.target.checked);
+
+  const currentSettings =
+    isJSON(localStorage.getItem("settings")) && localStorage.getItem("settings")
+      ? JSON.parse(localStorage.getItem("settings")!)
+      : defaultSettings;
+
+  currentSettings[name] = e.target.checked;
+  console.log(currentSettings);
+
+  localStorage.setItem("settings", JSON.stringify(currentSettings));
+
+  // Dark mode
+  if (name === "darkMode") {
+    const root = document.documentElement;
+    root?.style.setProperty("--dark-mode", e.target.checked);
+  }
+}
+
+export default function Toggle({ name, checked = true }) {
   return (
     <div className={styles.toggle}>
       <label className={styles.toggleWrapper}>
         <input
           type="checkbox"
           className={styles.toggleCheckbox}
-          onChange={event => {
-            console.log(event.target.checked);
-            localStorage.setItem(name, event.target.checked);
-
-            setTimeout(() => {
-              if (refreshAfterToggle["dark-mode"]) {
-                location.reload();
-              }
-            }, 150);
+          onChange={e => {
+            onChange(e, name);
           }}
-          defaultChecked={checked}
+          checked={checked}
         />
         <span className={styles.slider}></span>
       </label>

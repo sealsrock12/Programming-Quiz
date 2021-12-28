@@ -1,6 +1,5 @@
 import Menu from "@/components/Menu";
 import Problem from "@/components/Play/Problem";
-import Submit from "@/components/Play/Submit";
 import Button from "@/components/Button";
 import { generator } from "@/lib/generator";
 
@@ -16,20 +15,26 @@ export default function Play() {
     );
     const problem = problemInfo.problem;
     const options = problemInfo.options;
-    const answer = parseInt(problemInfo.answer);
+    const answer = problemInfo.answer;
     const solution = problemInfo.solution;
     const atProblem = problemInfo.atProblem;
 
     // determine which checkbox was checked
-    const checkboxes = document.querySelectorAll("input[name='option']");
+    // const checkboxes = document.querySelectorAll("input[name='option']");
 
-    let nthCheckbox = 1;
-    for (const checkbox of checkboxes) {
-      if (checkbox.checked) {
-        break;
-      }
-      nthCheckbox++;
-    }
+    // let nthCheckbox = 1;
+    // for (const checkbox of checkboxes) {
+    //   if (checkbox.checked) {
+    //     break;
+    //   }
+    //   nthCheckbox++;
+    // }
+
+    // console.log();
+
+    const nthCheckbox = document
+      .querySelectorAll("input[name='option']:checked")[0]
+      .id.slice(7);
 
     if (nthCheckbox === answer) {
       // correct
