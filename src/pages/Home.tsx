@@ -7,8 +7,14 @@ export default function Home() {
         <h1 className={styles.title}>Programming Quiz</h1>
         <div>
           Made by
-          <a href="https://github.com/BypassSpace"> BypassSpace </a>
-          and <a href="https://github.com/SealsRock12">SealsRock12</a>
+          <a href="https://github.com/CubingSoda" target="_blank">
+            {" "}
+            CubingSoda{" "}
+          </a>
+          and{" "}
+          <a href="https://github.com/SealsRock12" target="_blank">
+            SealsRock12
+          </a>
         </div>
       </div>
 

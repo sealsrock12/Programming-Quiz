@@ -32,7 +32,6 @@ export default function Toggle({ name, checked = true }) {
           onChange={e => {
             onChange(e, name);
           }}
-          checked={checked}
         />
         <span className={styles.slider}></span>
       </label>

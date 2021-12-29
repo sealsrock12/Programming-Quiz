@@ -68,7 +68,7 @@
 
 // export default Menu;
 
-import { FunctionalComponent } from "preact";
+import { FC } from "react";
 
 interface Props {
   playSelected?: boolean;
@@ -77,7 +77,7 @@ interface Props {
   bugSelected?: boolean;
 }
 
-const Menu: FunctionalComponent<Props> = ({
+const Menu: FC<Props> = ({
   playSelected,
   statsSelected,
   settingsSelected,

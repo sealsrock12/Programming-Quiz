@@ -8,11 +8,16 @@ export default function Footer() {
       <span>
         <span className={styles.copyright}>Copyright</span> &copy; 2021
         <span>
-          <a href="https://github.com/cubingsoda"> CubingSoda</a>
+          <a href="https://github.com/CubingSoda" target="_blank">
+            {" "}
+            CubingSoda
+          </a>
         </span>
         <span className={styles.and}> and </span>
         <span>
-          <a href="https://github.com/sealsrock12">SealsRock12</a>
+          <a href="https://github.com/SealsRock12" target="_blank">
+            SealsRock12
+          </a>
         </span>
       </span>
     </footer>

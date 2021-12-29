@@ -1,5 +1,5 @@
 import styles from "@/styles/component-styles/Button.module.scss";
-import { FunctionalComponent } from "preact";
+import { FC } from "react";
 
 interface Props {
   children: any;
@@ -12,7 +12,7 @@ interface Props {
   title?: any;
 }
 
-const Button: FunctionalComponent<Props> = ({
+const Button: FC<Props> = ({
   children,
   link,
   href,

@@ -5,7 +5,7 @@ import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Play.module.scss";
 
-import { useState } from "preact/hooks";
+import { useState } from "react";
 
 export default function Play() {
   function submit() {
