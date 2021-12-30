@@ -1,10 +1,12 @@
+import { useState } from "react";
+import { Helmet } from "react-helmet";
+
 import Menu from "@/components/Menu";
 import Button from "@/components/Button";
 import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Play.module.scss";
 
-import { useState } from "react";
 import ReactMarkdown from "react-markdown";
 import { v4 as uuidv4 } from "uuid";
 
@@ -36,6 +38,10 @@ export default function Play() {
 
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>Programming Quiz | Play</title>
+      </Helmet>
+
       <Menu playSelected />
 
       <article className={styles.problemContainer}>

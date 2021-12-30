@@ -1,3 +1,6 @@
+import React from "react";
+import { Helmet } from "react-helmet";
+
 import Menu from "@/components/Menu";
 import Toggle from "@/components/Toggle";
 import { isJSON, defaultSettings } from "@/lib/site";
@@ -35,6 +38,10 @@ export default function Settings() {
 
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>Programming Quiz | Settings</title>
+      </Helmet>
+
       <Menu settingsSelected />
 
       <section className={styles.settingsWrapper}>
