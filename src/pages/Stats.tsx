@@ -1,3 +1,6 @@
+import React from "react";
+import { Helmet } from "react-helmet";
+
 import { PieChart } from "react-minimal-pie-chart";
 
 import Menu from "@/components/Menu";
@@ -7,6 +10,10 @@ import styles from "@/styles/Stats.module.scss";
 export default function Stats() {
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>Programming Quiz | Stats</title>
+      </Helmet>
+
       <Menu statsSelected />
 
       <div className={styles.colorsHelperContainer}>

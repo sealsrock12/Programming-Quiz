@@ -1,11 +1,12 @@
+import { useState } from "react";
+import { Helmet } from "react-helmet";
+
 import Menu from "@/components/Menu";
 import Problem from "@/components/Play/Problem";
 import Button from "@/components/Button";
 import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Play.module.scss";
-
-import { useState } from "react";
 
 export default function Play() {
   function submit() {
@@ -48,6 +49,10 @@ export default function Play() {
 
   return (
     <main className={styles.main}>
+      <Helmet>
+        <title>Programming Quiz | Play</title>
+      </Helmet>
+
       <Menu playSelected />
 
       <article className={styles.problemContainer}>
