@@ -1,4 +1,4 @@
-import React, { lazy } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
 
 // styles for the entire web page
@@ -22,17 +22,21 @@ import Footer from "@/components/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-ReactDOM.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/play" element={<Play />} />
-      <Route path="/settings" element={<Settings />} />
-      <Route path="/stats" element={<Stats />} />
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+const renderLoader = () => <p>Loading</p>;
 
-    <Footer />
-  </Router>,
+ReactDOM.render(
+  <Suspense fallback={renderLoader()}>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/play" element={<Play />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+
+      <Footer />
+    </Router>
+  </Suspense>,
   document.getElementById("app")
 );

@@ -29,6 +29,7 @@ const Menu: FC<Props> = ({
       <div id={styles.hamburgerContainer} ref={hamburgerRef}>
         <img
           src="/hamburger-icon.svg"
+          alt="ham-menu"
           id={styles.hamburger}
           width="32"
           height="32"
