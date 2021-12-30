@@ -1,57 +1,71 @@
 import Menu from "@/components/Menu";
-import Problem from "@/components/Play/Problem";
 import Button from "@/components/Button";
 import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Play.module.scss";
 
 import { useState } from "react";
+import ReactMarkdown from "react-markdown";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Play() {
   function submit() {
-    // submit button handler
-    const problemInfo = JSON.parse(
-      localStorage.getItem("problem-info") || "{}"
-    );
-    const problem = problemInfo.problem;
-    const options = problemInfo.options;
-    const answer = problemInfo.answer;
-    const solution = problemInfo.solution;
-    const atProblem = problemInfo.atProblem;
-
-    const nthCheckbox = document
-      .querySelectorAll("input[name='option']:checked")[0]
-      .id.slice(7);
-
-    if (nthCheckbox === answer) {
-      // correct
+    if (selected === problemInfo.answer) {
       console.log("correct");
     } else {
-      // incorrect
       console.log("incorrect");
     }
 
-    console.log(solution);
-    console.log(options);
+    console.log(problemInfo.solution);
+    console.log(problemInfo.options);
 
-    problemInfo.pageText = solution;
-    problemInfo.atProblem = false;
-    console.log(problemInfo.pageText);
+    setOnSolution(true);
+  }
 
-    setProblemInfo(problemInfo);
+  function onOptionSelect(e: React.ChangeEvent<HTMLInputElement>) {
+    setSelected(parseInt(e.currentTarget.value));
   }
 
   const problemInfoGenerate = generator();
 
   const [problemInfo, setProblemInfo] = useState(problemInfoGenerate);
-  localStorage.setItem("problem-info", JSON.stringify(problemInfoGenerate));
+  const [onSolution, setOnSolution] = useState(false);
+  const [selected, setSelected] = useState(-1);
+  localStorage.setItem("lang", problemInfo.lang);
+  localStorage.setItem("id", problemInfo.id.toString());
 
   return (
     <main className={styles.main}>
       <Menu playSelected />
 
       <article className={styles.problemContainer}>
-        <Problem problemInfo={problemInfo} />
+        <div className={[styles.problem, "problem-container"].join(" ")}>
+          <h1 className={styles.typeText}>
+            {onSolution ? "SOLUTION" : "PROBLEM"}
+          </h1>
+
+          <ReactMarkdown>
+            {onSolution ? problemInfo.solution : problemInfo.problem}
+          </ReactMarkdown>
+        </div>
+        <div className={styles.optionsContainer}>
+          <div className={styles.options}>
+            {problemInfo.options.map((option, index) => {
+              return (
+                <div className={styles.option} key={uuidv4()}>
+                  <input
+                    type="radio"
+                    id={`option-${index}`}
+                    name={`option`}
+                    value={index}
+                    onChange={onOptionSelect}
+                  />
+                  <label htmlFor={`option-${index}`}>{option}</label>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
         <div className={styles.controls}>
           <Button className={styles.submit} title="submit" onClick={submit}>

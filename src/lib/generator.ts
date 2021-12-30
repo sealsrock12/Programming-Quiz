@@ -1,27 +1,13 @@
 import problems from "@/lib/problems";
 
-export function randomProperty(obj) {
-  const keys = Object.keys(obj);
-  const val = (keys.length * Math.random()) << 0;
-  return [keys[val], obj[keys[val]]];
-}
-
 export function generator() {
-  const langProbs = randomProperty(problems)[1];
-  const problemInfo = randomProperty(langProbs);
-
-  const problem = problemInfo[0];
-  const options = problemInfo[1][0];
-  const answer = problemInfo[1][1];
-  const solution = problemInfo[1][2];
-  const pageText = problemInfo[0];
+  const lang = Math.floor(Math.random() * 2) == 0 ? "js" : "py";
+  // https://stackoverflow.com/a/4550514/
+  const id = Math.floor(Math.random() * problems[lang].length);
 
   return {
-    problem: problem,
-    options: options,
-    answer: answer,
-    solution: solution,
-    pageText: pageText,
-    atProblem: true
+    lang,
+    id,
+    ...problems[lang][id]
   };
 }
