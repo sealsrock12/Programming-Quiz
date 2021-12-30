@@ -19,19 +19,6 @@ export default function Play() {
     const solution = problemInfo.solution;
     const atProblem = problemInfo.atProblem;
 
-    // determine which checkbox was checked
-    // const checkboxes = document.querySelectorAll("input[name='option']");
-
-    // let nthCheckbox = 1;
-    // for (const checkbox of checkboxes) {
-    //   if (checkbox.checked) {
-    //     break;
-    //   }
-    //   nthCheckbox++;
-    // }
-
-    // console.log();
-
     const nthCheckbox = document
       .querySelectorAll("input[name='option']:checked")[0]
       .id.slice(7);

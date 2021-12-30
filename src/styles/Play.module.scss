@@ -19,11 +19,11 @@
     width: 16px;
   }
 
-  @media (max-width: 640px) {
-    width: 100vw;
-    align-items: flex-start;
-    align-self: flex-start;
-  }
+  // @media (max-width: 640px) {
+  //   width: 100vw;
+  //   align-items: flex-start;
+  //   align-self: flex-start;
+  // }
 }
 
 .problem {
@@ -56,6 +56,13 @@
   font-weight: bold;
   font-size: 1.5rem;
   margin-bottom: 1.3rem;
+}
+
+@media screen and (max-width: 640px) {
+  .option {
+    // border: 1px solid red;
+    padding: 0.3rem 0rem;
+  }
 }
 
 @media screen and (max-width: 1036px) {

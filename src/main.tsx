@@ -22,7 +22,7 @@ import Footer from "@/components/Footer";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-const renderLoader = () => <p>Loading</p>;
+const renderLoader = () => <p></p>;
 
 ReactDOM.render(
   <Suspense fallback={renderLoader()}>
