@@ -27,7 +27,7 @@ export default function Home() {
       </div>
 
       <div className={styles.playWrapper}>
-        <a className={[styles.playBtn, "play-btn"].join(" ")} href="play">
+        <a className={[styles.playBtn, "play-btn"].join(" ")} href="/play">
           PLAY
         </a>
       </div>
