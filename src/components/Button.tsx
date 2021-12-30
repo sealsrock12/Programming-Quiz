@@ -10,6 +10,7 @@ interface Props {
   type?: any;
   onClick?: any;
   title?: any;
+  nonExistent?: boolean;
 }
 
 const Button: FC<Props> = ({
@@ -20,8 +21,11 @@ const Button: FC<Props> = ({
   type,
   selected,
   onClick,
-  title
+  title,
+  nonExistent
 }) => {
+  if (nonExistent) return null;
+
   return link ? (
     <a
       className={[
