@@ -4,8 +4,6 @@
  * value (obj): questions and choice
  */
 
-import markup from "styles/Markup.module.scss";
-
 const problems = {
   js: {
     // ...
