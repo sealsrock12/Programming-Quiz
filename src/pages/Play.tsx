@@ -13,10 +13,11 @@ import { v4 as uuidv4 } from "uuid";
 export default function Play() {
   function submit() {
     if (onSolution) {
-      setProblemInfo(generator());
       setOnSolution(false);
       setSelected(-1);
       setTypeText("PROBLEM");
+      setProblemInfo(generator());
+      return;
     }
     if (selected === -1) {
       return;
