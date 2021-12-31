@@ -1,8 +1,7 @@
 import styles from "@/styles/component-styles/Menu.module.scss";
 import Button from "@/components/Button";
 
-import { FC } from "react";
-import React, { useRef, useEffect } from "react";
+import { useRef, FC } from "react";
 
 interface Props {
   playSelected?: boolean;
@@ -11,12 +10,7 @@ interface Props {
   bugSelected?: boolean;
 }
 
-const Menu: FC<Props> = ({
-  playSelected,
-  statsSelected,
-  settingsSelected,
-  bugSelected
-}) => {
+const Menu: FC<Props> = ({ playSelected, statsSelected, settingsSelected }) => {
   const menuRef = useRef<HTMLElement | null>(null);
   const hamburgerRef = useRef<HTMLDivElement | null>(null);
   const hamburgerClick = _ => {

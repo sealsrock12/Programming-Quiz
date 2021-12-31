@@ -6,8 +6,12 @@
 
 .noHoverColor {
   &:hover {
-    color: white;
+    color: var(--text-color);
   }
+}
+
+.navLink {
+  color: var(--text-color);
 }
 
 #hamburger {
