@@ -27,18 +27,22 @@ export default function Play() {
     setOnSolution(true);
 
     if (selected === problemInfo.answer) {
-      setTypeText("Correct!");
+      if (!localStorage.getItem("problemsRight")) {
+        localStorage.setItem("problemsRight", "1");
+      } else {
+        const problemsRight = parseInt(localStorage.getItem("problemsRight")!);
+        localStorage.setItem("problemsRight", (problemsRight + 1).toString());
+      }
+      setTypeText("CORRECT!");
     } else {
+      if (!localStorage.getItem("problemsWrong")) {
+        localStorage.setItem("problemsWrong", "1");
+      } else {
+        const problemsWrong = parseInt(localStorage.getItem("problemsWrong")!);
+        localStorage.setItem("problemsWrong", (problemsWrong + 1).toString());
+      }
       setTypeText("Sorry, incorrect.");
     }
-
-    const data =
-      JSON.parse(localStorage.getItem("data")!) ||
-      JSON.parse(localStorage.setItem("data", "{}")!);
-    data[`${problemInfo.lang}-${problemInfo.id}`] = {
-      response: selected === problemInfo.answer ? "1" : "0"
-    };
-    localStorage.setItem("data", JSON.stringify(data));
 
     console.log(problemInfo.solution);
     console.log(problemInfo.options);
