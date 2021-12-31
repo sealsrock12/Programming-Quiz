@@ -19,13 +19,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const renderLoader = () => <p></p>;
 
-// Dark/light mode
+// Apply settings
 const currentSettings =
   isJSON(localStorage.getItem("settings")) && localStorage.getItem("settings")
     ? JSON.parse(localStorage.getItem("settings")!)
     : defaultSettings;
 
-if (currentSettings.darkMode) {
+if (currentSettings.lightMode) {
   document.body.classList.add("light");
 }
 
