@@ -16,11 +16,11 @@ function onChange(e, name) {
   localStorage.setItem("settings", JSON.stringify(currentSettings));
 
   // Dark mode
-  if (name === "darkMode") {
+  if (name === "lightMode") {
     if (e.target.checked) {
-      document.body.classList.remove("light");
-    } else {
       document.body.classList.add("light");
+    } else {
+      document.body.classList.remove("light");
     }
   }
 }
