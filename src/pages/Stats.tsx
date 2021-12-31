@@ -10,9 +10,11 @@ import Menu from "@/components/Menu";
 import styles from "@/styles/Stats.module.scss";
 
 function getData() {
-  const data = isJSON(localStorage.getItem("data")!)
-    ? JSON.parse(localStorage.getItem("data")!)
-    : undefined;
+  const data =
+    isJSON(localStorage.getItem("data")!) &&
+    localStorage.getItem("data") !== "{}"
+      ? JSON.parse(localStorage.getItem("data")!)
+      : undefined;
 
   if (!data) {
     localStorage.setItem("data", "{}");

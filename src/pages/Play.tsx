@@ -32,9 +32,9 @@ export default function Play() {
       setTypeText("Sorry, incorrect.");
     }
 
-    const data = JSON.parse(localStorage.getItem("data")!)
-      ? JSON.parse(localStorage.getItem("data")!)
-      : JSON.parse(localStorage.setItem("data", "{}")!);
+    const data =
+      JSON.parse(localStorage.getItem("data")!) ||
+      JSON.parse(localStorage.setItem("data", "{}")!);
     data[`${problemInfo.lang}-${problemInfo.id}`] = {
       response: selected === problemInfo.answer ? "1" : "0"
     };
@@ -71,11 +71,7 @@ export default function Play() {
   localStorage.setItem("lang", problemInfo.lang!);
   localStorage.setItem("id", problemInfo.id.toString()!);
 
-  localStorage.setItem(
-    "data",
-    localStorage.getItem("data") /* ? localStorage.getItem("data") : "{}" */ ||
-      "{}"
-  )!;
+  localStorage.setItem("data", localStorage.getItem("data") || "{}")!;
 
   return (
     <main className={styles.main}>
