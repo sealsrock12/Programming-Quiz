@@ -25,10 +25,12 @@ export default function Stats() {
 
       <div className={styles.colorsHelperContainer}>
         <div className={styles.colorHelper}>
-          <span className={styles.greenSquare}></span> Answered correctly
+          <span className={styles.greenSquare}></span> Answered correctly:
+          <span className="bold">{problemsRight!}</span>
         </div>
         <div className={styles.colorHelper}>
-          <span className={styles.redSquare}></span> Answered incorrectly
+          <span className={styles.redSquare}></span> Answered incorrectly:
+          <span className="bold">{problemsWrong!}</span>
         </div>
       </div>
 
