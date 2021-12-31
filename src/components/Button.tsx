@@ -28,20 +28,18 @@ const Button: FC<Props> = ({
 
   return link ? (
     <a
-      className={[
-        `${styles.btn} ${className} ${selected ? `${styles.selected}` : ""}`,
-        selected ? "link-selected" : ""
-      ].join(" ")}
+      className={`${styles.btn} ${className} ${
+        selected ? `${styles.selected}` : ""
+      } ${selected ? "link-selected" : ""}`}
       href={href}
     >
       {children}
     </a>
   ) : (
     <button
-      className={[
-        `${styles.btn} ${className} ${selected ? styles.selected : ""}`,
-        title === "submit" ? "submit-button" : ""
-      ].join(" ")}
+      className={`${styles.btn} ${className} ${
+        selected ? styles.selected : ""
+      } ${title === "submit" ? "submit-button" : ""}`}
       type={type}
       onClick={onClick}
     >

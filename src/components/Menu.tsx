@@ -37,9 +37,9 @@ const Menu: FC<Props> = ({
         />
       </div>
 
-      <nav ref={menuRef} className={[styles.menu, "menu-container"].join(" ")}>
+      <nav ref={menuRef} className={`${styles.menu} menu-container`}>
         <Button
-          className={["NOT-round", styles.navLink].join(" ")}
+          className={`NOT-round ${styles.navLink} ${styles.noHoverColor}`}
           link
           href="/play"
           selected={playSelected}
@@ -47,7 +47,7 @@ const Menu: FC<Props> = ({
           PLAY
         </Button>
         <Button
-          className={["NOT-round", styles.navLink].join(" ")}
+          className={`NOT-round ${styles.navLink} ${styles.noHoverColor}`}
           link
           href="/stats"
           selected={statsSelected}
@@ -55,7 +55,7 @@ const Menu: FC<Props> = ({
           STATS
         </Button>
         <Button
-          className={["NOT-round", styles.navLink].join(" ")}
+          className={`NOT-round ${styles.navLink} ${styles.noHoverColor}`}
           link
           href="/settings"
           selected={settingsSelected}

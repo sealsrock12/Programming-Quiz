@@ -18,7 +18,7 @@ function onChange(e, name) {
   // Dark mode
   if (name === "darkMode") {
     const root = document.documentElement;
-    root?.style.setProperty("--dark-mode", e.target.checked);
+    root?.style.setProperty("--dark-mode", `"${e.target.checked}"`);
   }
 }
 
@@ -32,6 +32,7 @@ export default function Toggle({ name, checked = true }) {
           onChange={e => {
             onChange(e, name);
           }}
+          defaultChecked={checked}
         />
         <span className={styles.slider}></span>
       </label>

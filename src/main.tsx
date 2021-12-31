@@ -1,5 +1,7 @@
-import React, { lazy, Suspense } from "react";
+import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
+
+import { isJSON, defaultSettings } from "@/lib/site";
 
 // styles for the entire web page
 import "@/styles/global-styles/globals.scss";
@@ -12,17 +14,22 @@ const Settings = lazy(() => import("@/pages/Settings"));
 const Stats = lazy(() => import("@/pages/Stats"));
 const NotFound = lazy(() => import("@/pages/404"));
 
-// import Home from "@/pages/Home";
-// import Play from "@/pages/Play";
-// import Settings from "@/pages/Settings";
-// import Stats from "@/pages/Stats";
-// import NotFound from "@/pages/404";
-
 import Footer from "@/components/Footer";
-
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const renderLoader = () => <p></p>;
+
+// Dark/light mode
+const currentSettings =
+  isJSON(localStorage.getItem("settings")) && localStorage.getItem("settings")
+    ? JSON.parse(localStorage.getItem("settings")!)
+    : defaultSettings;
+
+const root = document.documentElement;
+root?.style.setProperty(
+  "--dark-mode",
+  `"${currentSettings.darkMode.toString()}"`
+);
 
 ReactDOM.render(
   <Suspense fallback={renderLoader()}>

@@ -25,8 +25,7 @@ const problems: ProblemList = {
         "Pending, Finished, Rejected",
         "Pending, Fulfilled, Denied",
         "Pending, Fulfilled, Rejected",
-        "Pending, Complete, Rejected",
-        "Progress, Fulfilled, Rejected"
+        "Pending, Complete, Rejected"
       ],
       answer: 2,
       solution: "They are: Pending, Fulfilled, Rejected"

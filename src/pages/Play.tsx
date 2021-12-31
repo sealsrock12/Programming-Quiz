@@ -27,7 +27,7 @@ export default function Play() {
     setOnSolution(true);
 
     if (selected === problemInfo.answer) {
-      setTypeText("CORRECT!");
+      setTypeText("Correct!");
     } else {
       setTypeText("Sorry, incorrect.");
     }
@@ -36,15 +36,15 @@ export default function Play() {
     console.log(problemInfo.options);
   }
 
-  function onOptionSelect(e: React.ChangeEvent<HTMLInputElement>) {
+  function onOptionSelect(e) {
     setSelected(parseInt(e.currentTarget.value));
   }
 
   const [problemInfo, setProblemInfo] = useState(() => {
-    if (localStorage.getItem("lang")) {
+    if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       console.log("Updating based on storage");
-      const lang = localStorage.getItem("lang")!;
-      const id = parseInt(localStorage.getItem("id")!);
+      const lang = localStorage.getItem("lang");
+      const id = parseInt(localStorage.getItem("id"));
 
       return { lang, id, ...problems[lang][id] };
     } else {
@@ -71,7 +71,7 @@ export default function Play() {
       <Menu playSelected />
 
       <article className={styles.problemContainer}>
-        <div className={[styles.problem, "problem-container"].join(" ")}>
+        <div className={`${styles.problem} problem-container`}>
           <h1 className={styles.typeText}>{typeText}</h1>
 
           <ReactMarkdown>
