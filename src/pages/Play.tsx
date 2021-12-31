@@ -55,17 +55,17 @@ export default function Play() {
   const [problemInfo, setProblemInfo] = useState(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       console.log("Updating based on storage");
-      const lang = localStorage.getItem("lang");
+      const lang = localStorage.getItem("lang")!;
       const id = parseInt(localStorage.getItem("id")!);
 
-      return { lang, id, ...problems[lang!][id] };
+      return { lang, id, ...problems[lang][id] };
     } else {
       return generator();
     }
   });
   useEffect(() => {
-    localStorage.setItem("lang", problemInfo.lang!);
-    localStorage.setItem("id", problemInfo.id.toString()!);
+    localStorage.setItem("lang", problemInfo.lang);
+    localStorage.setItem("id", problemInfo.id.toString());
   }, [problemInfo]);
 
   const [onSolution, setOnSolution] = useState(false);
@@ -73,9 +73,7 @@ export default function Play() {
   const [typeText, setTypeText] = useState("PROBLEM");
 
   localStorage.setItem("lang", problemInfo.lang!);
-  localStorage.setItem("id", problemInfo.id.toString()!);
-
-  localStorage.setItem("data", localStorage.getItem("data") || "{}")!;
+  localStorage.setItem("id", problemInfo.id.toString());
 
   return (
     <main className={styles.main}>
