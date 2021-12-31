@@ -17,8 +17,11 @@ function onChange(e, name) {
 
   // Dark mode
   if (name === "darkMode") {
-    const root = document.documentElement;
-    root?.style.setProperty("--dark-mode", `"${e.target.checked}"`);
+    if (e.target.checked) {
+      document.body.classList.remove("light");
+    } else {
+      document.body.classList.add("light");
+    }
   }
 }
 

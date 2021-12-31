@@ -8,14 +8,15 @@
   --border: hsl(210, 20%, 98%);
   --hover-border: hsl(220, 14%, 96%);
 
-  // LIGHT MODE
-  --light-bg-color: white;
-  --light-text-color: hsl(223, 83%, 9%);
-  --light-border: hsl(0deg, 0%, 64%);
-  --light-hover-border: hsl(0deg, 0%, 76%);
-
   --color-blue: hsl(217, 91%, 60%);
   --color-red: hsl(0, 84%, 60%);
   --color-green: hsl(160, 84%, 39%);
   --color-orange: hsl(38, 92%, 50%);
+}
+
+.light {
+  --bg-color: white;
+  --text-color: hsl(223, 83%, 9%);
+  --border: hsl(0deg, 0%, 64%);
+  --hover-border: hsl(0deg, 0%, 76%);
 }

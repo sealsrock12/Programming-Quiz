@@ -20,12 +20,6 @@ body {
   height: 0;
 }
 
-@mixin dark-mode {
-  @if (var(--dark-mode) == "true") {
-    background-color: white !important;
-  }
-}
-
 #app {
   display: flex;
   flex-direction: column;
@@ -33,8 +27,6 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   margin: 0;
-
-  @include dark-mode();
 }
 
 *,
