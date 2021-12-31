@@ -46,7 +46,7 @@ export default function Settings() {
 
       <section className={styles.settingsWrapper}>
         <div className={styles.settingRow}>
-          <span>Dark Mode</span>
+          <span>Light Mode</span>
           <Toggle checked={settings.darkMode === true} name="darkMode" />
         </div>
       </section>

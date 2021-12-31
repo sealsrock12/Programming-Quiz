@@ -25,11 +25,9 @@ const currentSettings =
     ? JSON.parse(localStorage.getItem("settings")!)
     : defaultSettings;
 
-const root = document.documentElement;
-root?.style.setProperty(
-  "--dark-mode",
-  `"${currentSettings.darkMode.toString()}"`
-);
+if (currentSettings.darkMode) {
+  document.body.classList.add("light");
+}
 
 ReactDOM.render(
   <Suspense fallback={renderLoader()}>
