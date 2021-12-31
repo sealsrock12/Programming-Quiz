@@ -30,6 +30,12 @@ const problems: ProblemList = {
       ],
       answer: 2,
       solution: "They are: Pending, Fulfilled, Rejected"
+    },
+    {
+      problem: "Dummy js problem, the answer is 3",
+      options: ["0", "1", "2", "3"],
+      answer: 3,
+      solution: "The answer is 3"
     }
   ],
   py: [
@@ -44,6 +50,24 @@ const problems: ProblemList = {
       answer: 0,
       solution:
         "`print()` prints text in to the terminal. There is no window involved."
+    },
+    {
+      problem: "Dummy py problem, the answer is 0",
+      options: ["0", "1", "2", "3"],
+      answer: 0,
+      solution: "The answer is 0"
+    },
+    {
+      problem: "Dummy py problem, the answer is 1",
+      options: ["0", "1", "2", "3"],
+      answer: 1,
+      solution: "The answer is 1"
+    },
+    {
+      problem: "Dummy py problem, the answer is 2",
+      options: ["0", "1", "2", "3"],
+      answer: 2,
+      solution: "The answer is 2"
     }
   ]
 };
