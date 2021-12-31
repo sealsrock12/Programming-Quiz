@@ -1,24 +1,19 @@
-import React from "react";
 import { Helmet } from "react-helmet";
-
 import { PieChart } from "react-minimal-pie-chart";
 
 import Menu from "@/components/Menu";
-
 import styles from "@/styles/Stats.module.scss";
 
 export default function Stats() {
   let hasProblems: boolean, problemsRight: number, problemsWrong: number;
-  if (
-    localStorage.getItem("problemsRight") ||
-    localStorage.getItem("problemsWrong")
-  ) {
-    hasProblems = true;
+  if (localStorage.getItem("problemsRight")) {
     problemsRight = parseInt(localStorage.getItem("problemsRight")!);
+  } else problemsRight = 0;
+  if (localStorage.getItem("problemsWrong")) {
     problemsWrong = parseInt(localStorage.getItem("problemsWrong")!);
-  } else {
-    hasProblems = false;
-  }
+  } else problemsWrong = 0;
+  if (problemsRight == 0 && problemsWrong == 0) hasProblems = false;
+  else hasProblems = true;
 
   return (
     <main className={styles.main}>
@@ -42,12 +37,12 @@ export default function Stats() {
           <PieChart
             data={[
               {
-                title: "Correct on your first attempt",
+                title: `Correct: ${problemsRight}`,
                 value: problemsRight!,
                 color: "var(--color-green)"
               },
               {
-                title: "Incorrect",
+                title: `Incorrect: ${problemsWrong}`,
                 value: problemsWrong!,
                 color: "var(--color-red)"
               }
@@ -55,7 +50,7 @@ export default function Stats() {
             className={styles.chart}
           />
         ) : (
-          "We don't have data yet."
+          "Sorry, we don't have any data yet."
         )}
       </div>
     </main>
