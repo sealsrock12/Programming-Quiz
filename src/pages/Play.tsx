@@ -32,6 +32,12 @@ export default function Play() {
       setTypeText("Sorry, incorrect.");
     }
 
+    const data = JSON.parse(localStorage.getItem("data"));
+    data[`${problemInfo.lang}-${problemInfo.id}`] = {
+      response: selected === problemInfo.answer ? "1" : "0"
+    };
+    localStorage.setItem("data", JSON.stringify(data));
+
     console.log(problemInfo.solution);
     console.log(problemInfo.options);
   }
@@ -59,8 +65,14 @@ export default function Play() {
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("PROBLEM");
+
   localStorage.setItem("lang", problemInfo.lang);
   localStorage.setItem("id", problemInfo.id.toString());
+
+  localStorage.setItem(
+    "data",
+    localStorage.getItem("data") ? localStorage.getItem("data") : "{}"
+  );
 
   return (
     <main className={styles.main}>
@@ -93,7 +105,12 @@ export default function Play() {
                     checked={selected === index}
                     onChange={onOptionSelect}
                   />
-                  <label htmlFor={`option-${index}`}>{option}</label>
+                  <label
+                    htmlFor={`option-${index}`}
+                    className={styles.optionLabel}
+                  >
+                    {option}
+                  </label>
                 </div>
               );
             })}
