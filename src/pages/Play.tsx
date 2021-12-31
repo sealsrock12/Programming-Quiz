@@ -32,7 +32,9 @@ export default function Play() {
       setTypeText("Sorry, incorrect.");
     }
 
-    const data = JSON.parse(localStorage.getItem("data"));
+    const data = JSON.parse(localStorage.getItem("data")!)
+      ? JSON.parse(localStorage.getItem("data")!)
+      : JSON.parse(localStorage.setItem("data", "{}")!);
     data[`${problemInfo.lang}-${problemInfo.id}`] = {
       response: selected === problemInfo.answer ? "1" : "0"
     };
@@ -50,29 +52,30 @@ export default function Play() {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       console.log("Updating based on storage");
       const lang = localStorage.getItem("lang");
-      const id = parseInt(localStorage.getItem("id"));
+      const id = parseInt(localStorage.getItem("id")!);
 
-      return { lang, id, ...problems[lang][id] };
+      return { lang, id, ...problems[lang!][id] };
     } else {
       return generator();
     }
   });
   useEffect(() => {
-    localStorage.setItem("lang", problemInfo.lang);
-    localStorage.setItem("id", problemInfo.id.toString());
+    localStorage.setItem("lang", problemInfo.lang!);
+    localStorage.setItem("id", problemInfo.id.toString()!);
   }, [problemInfo]);
 
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("PROBLEM");
 
-  localStorage.setItem("lang", problemInfo.lang);
-  localStorage.setItem("id", problemInfo.id.toString());
+  localStorage.setItem("lang", problemInfo.lang!);
+  localStorage.setItem("id", problemInfo.id.toString()!);
 
   localStorage.setItem(
     "data",
-    localStorage.getItem("data") ? localStorage.getItem("data") : "{}"
-  );
+    localStorage.getItem("data") /* ? localStorage.getItem("data") : "{}" */ ||
+      "{}"
+  )!;
 
   return (
     <main className={styles.main}>
