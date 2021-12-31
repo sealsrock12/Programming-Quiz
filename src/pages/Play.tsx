@@ -122,9 +122,6 @@ export default function Play() {
           <Button className={styles.submit} title="submit" onClick={submit}>
             {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
-          <Button title="submit" nonExistent={onSolution}>
-            GIVE UP
-          </Button>
         </div>
       </article>
     </main>
