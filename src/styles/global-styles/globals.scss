@@ -13,6 +13,7 @@ html {
 
 body {
   line-height: 1.5;
+  transition: 0.3ms ease-in;
 }
 
 ::-webkit-scrollbar {
@@ -27,6 +28,7 @@ body {
   color: var(--text-color);
   background-color: var(--bg-color);
   margin: 0;
+  transition: 0.3s ease-in;
 }
 
 *,
