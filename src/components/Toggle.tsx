@@ -1,4 +1,4 @@
-import styles from "@/styles/component-styles/Toggle.module.scss";
+import styles from "@/styles/components/Toggle.module.scss";
 
 import { isJSON, defaultSettings } from "@/lib/site";
 

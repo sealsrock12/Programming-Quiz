@@ -1,6 +1,6 @@
-import styles from "@/styles/component-styles/Footer.module.scss";
+import styles from "@/styles/components/Footer.module.scss";
 
-import adfadf from "@/styles/component-styles/dkfaslkdfjadiuf98aeur98qwroijqerlk.scss";
+import adfadf from "@/styles/components/dkfaslkdfjadiuf98aeur98qwroijqerlk.scss";
 
 export default function Footer() {
   return (

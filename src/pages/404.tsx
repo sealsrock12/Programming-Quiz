@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 
-import styles from "@/styles/global-styles/404.module.scss";
+import styles from "@/styles/404.module.scss";
 
 import Menu from "@/components/Menu";
 

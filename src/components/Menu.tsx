@@ -1,4 +1,4 @@
-import styles from "@/styles/component-styles/Menu.module.scss";
+import styles from "@/styles/components/Menu.module.scss";
 import Button from "@/components/Button";
 
 import { useRef, FC } from "react";

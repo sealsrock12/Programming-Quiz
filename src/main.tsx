@@ -4,9 +4,9 @@ import ReactDOM from "react-dom";
 import { isJSON, defaultSettings } from "@/lib/site";
 
 // styles for the entire web page
-import "@/styles/global-styles/globals.scss";
-import "@/styles/global-styles/theme.scss";
-import "@/styles/global-styles/markup.scss";
+import "@/styles//globals.scss";
+import "@/styles/theme.scss";
+import "@/styles/markup.scss";
 
 const Home = lazy(() => import("@/pages/Home"));
 const Play = lazy(() => import("@/pages/Play"));
