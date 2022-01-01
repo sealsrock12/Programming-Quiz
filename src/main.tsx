@@ -12,6 +12,7 @@ const Home = lazy(() => import("@/pages/Home"));
 const Play = lazy(() => import("@/pages/Play"));
 const Settings = lazy(() => import("@/pages/Settings"));
 const Stats = lazy(() => import("@/pages/Stats"));
+const Credits = lazy(() => import("@/pages/Credits"));
 const NotFound = lazy(() => import("@/pages/404"));
 
 import Footer from "@/components/Footer";
@@ -37,6 +38,7 @@ ReactDOM.render(
         <Route path="/play" element={<Play />} />
         <Route path="/settings" element={<Settings />} />
         <Route path="/stats" element={<Stats />} />
+        <Route path="/credits" element={<Credits />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 

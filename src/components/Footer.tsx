@@ -1,7 +1,5 @@
 import styles from "@/styles/components/Footer.module.scss";
 
-import adfadf from "@/styles/components/dkfaslkdfjadiuf98aeur98qwroijqerlk.scss";
-
 export default function Footer() {
   return (
     <footer className={styles.customFooter}>
@@ -26,6 +24,9 @@ export default function Footer() {
           >
             SealsRock12
           </a>
+        </span>
+        <span>
+          , <a href="/credits">and more</a>
         </span>
       </span>
     </footer>
