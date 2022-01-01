@@ -24,8 +24,10 @@
 
 .selected {
   background-color: hsla(0, 0%, 100%, 0.2);
+  border-color: var(--selected-border);
 
   &:hover {
     background-color: hsla(0, 0%, 100%, 0.2);
+    border-color: var(--selected-border);
   }
 }
