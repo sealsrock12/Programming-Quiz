@@ -11,14 +11,13 @@ export default function Custom404() {
       <Helmet>
         <title>Programming Quiz | 404</title>
       </Helmet>
+      <Menu />
       <main className={styles.main}>
-        <section className={styles.content}>
-          <span className={styles.pageNot}>Page Not </span>
-          <span className={styles.found}>Found</span>
-          <h2 className={styles.description}>
-            Sorry, we cannot find the page you are looking for.
-          </h2>
-        </section>
+        <span className={styles.pageNot}>Page Not </span>
+        <span className={styles.found}>Found</span>
+        <h2 className={styles.description}>
+          Sorry, we cannot find the page you are looking for.
+        </h2>
       </main>
     </>
   );
