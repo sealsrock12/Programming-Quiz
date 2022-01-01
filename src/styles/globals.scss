@@ -4,6 +4,7 @@
 
 html {
   font-family: "Inter", sans-serif;
+  overflow-y: hidden;
 }
 @supports (font-variation-settings: normal) {
   html {
@@ -13,11 +14,6 @@ html {
 
 body {
   line-height: 1.5;
-}
-
-::-webkit-scrollbar {
-  width: 0;
-  height: 0;
 }
 
 #app {
