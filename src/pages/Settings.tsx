@@ -36,27 +36,28 @@ export default function Settings() {
   }
 
   return (
-    <main className={styles.main}>
+    <>
       <Helmet>
         <title>Programming Quiz | Settings</title>
       </Helmet>
 
       <Menu settingsSelected />
+      <main className={styles.main}>
+        <section className={styles.settingsWrapper}>
+          <div className={styles.settingRow}>
+            <span>Light Mode</span>
+            <Toggle checked={settings.lightMode === true} name="lightMode" />
+          </div>
+        </section>
 
-      <section className={styles.settingsWrapper}>
-        <div className={styles.settingRow}>
-          <span>Light Mode</span>
-          <Toggle checked={settings.lightMode === true} name="lightMode" />
-        </div>
-      </section>
-
-      <section className={styles.reset} onClick={reset}>
-        <FontAwesomeIcon
-          icon={faTriangleExclamation}
-          className={styles.faTriangleExclamation}
-        />
-        Reset all settings
-      </section>
-    </main>
+        <section className={styles.reset} onClick={reset}>
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            className={styles.faTriangleExclamation}
+          />
+          Reset all settings
+        </section>
+      </main>
+    </>
   );
 }

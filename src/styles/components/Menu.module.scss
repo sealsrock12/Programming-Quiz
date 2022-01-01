@@ -15,7 +15,7 @@
 }
 
 #hamburger {
-  filter: invert(1);
+  filter: var(--light-not-invert);
   cursor: pointer;
 }
 

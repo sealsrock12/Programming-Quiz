@@ -26,7 +26,8 @@ export default function Footer() {
           </a>
         </span>
         <span>
-          , <a href="/credits">and more</a>
+          {" "}
+          - <a href="/credits">Credits</a>
         </span>
       </span>
     </footer>

@@ -83,14 +83,14 @@ export default function Play() {
   localStorage.setItem("id", problemInfo.id.toString());
 
   return (
-    <main className={styles.main}>
+    <>
       <Helmet>
         <title>Play | Programming Quiz</title>
       </Helmet>
 
       <Menu playSelected />
 
-      <article className={styles.problemContainer}>
+      <main className={styles.main}>
         <div className={`${styles.problem} problem-container`}>
           <h1 className={styles.typeText}>{typeText}</h1>
 
@@ -130,7 +130,7 @@ export default function Play() {
             {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
         </div>
-      </article>
-    </main>
+      </main>
+    </>
   );
 }

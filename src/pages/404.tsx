@@ -7,18 +7,19 @@ import Menu from "@/components/Menu";
 
 export default function Custom404() {
   return (
-    <main className={styles.main}>
+    <>
       <Helmet>
         <title>Programming Quiz | 404</title>
       </Helmet>
-
-      <section className={styles.content}>
-        <span className={styles.pageNot}>Page Not </span>
-        <span className={styles.found}>Found</span>
-        <h2 className={styles.description}>
-          Sorry, we cannot find the page you are looking for.
-        </h2>
-      </section>
-    </main>
+      <main className={styles.main}>
+        <section className={styles.content}>
+          <span className={styles.pageNot}>Page Not </span>
+          <span className={styles.found}>Found</span>
+          <h2 className={styles.description}>
+            Sorry, we cannot find the page you are looking for.
+          </h2>
+        </section>
+      </main>
+    </>
   );
 }
