@@ -18,6 +18,7 @@ export default function Play() {
       setSelected(-1);
       setTypeText("PROBLEM");
       setProblemInfo(generator());
+      localStorage.removeItem("onSolution");
       return;
     }
     if (selected === -1) {
@@ -25,6 +26,7 @@ export default function Play() {
     }
 
     setOnSolution(true);
+    localStorage.setItem("onSolution", "true");
 
     if (selected === problemInfo.answer) {
       if (!localStorage.getItem("problemsRight")) {
@@ -54,6 +56,11 @@ export default function Play() {
 
   const [problemInfo, setProblemInfo] = useState(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
+      if (localStorage.getItem("onSolution") === "true") {
+        localStorage.removeItem("onSolution");
+        return generator();
+      }
+
       console.log("Updating based on storage");
       const lang = localStorage.getItem("lang")!;
       const id = parseInt(localStorage.getItem("id")!);
