@@ -1,4 +1,4 @@
-.main {
+main {
   width: 80vw;
   overflow: auto;
   padding: 2rem;
@@ -24,6 +24,10 @@
   //   align-items: flex-start;
   //   align-self: flex-start;
   // }
+
+  pre > div {
+    max-width: 80vw;
+  }
 }
 
 .problem {
@@ -46,11 +50,6 @@
   margin-right: 1rem;
 }
 
-.main {
-  display: flex;
-  flex-direction: column;
-}
-
 .typeText {
   text-align: center;
   font-weight: bold;
@@ -61,6 +60,17 @@
 
 .optionLabel {
   padding-left: 0.3rem;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    width: 100vw;
+    padding: 0.5rem;
+
+    pre > div {
+      max-width: 95vw;
+    }
+  }
 }
 
 @media screen and (max-width: 640px) {

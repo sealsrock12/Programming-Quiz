@@ -120,7 +120,7 @@ export default function Play() {
                     {...props}
                   />
                 ) : (
-                  <code className={className} {...props}>
+                  <code className={`${className} ${styles.code}`} {...props}>
                     {children}
                   </code>
                 );
