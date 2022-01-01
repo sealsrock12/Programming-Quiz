@@ -29,12 +29,6 @@ const problems: ProblemList = {
       ],
       answer: 2,
       solution: "They are: Pending, Fulfilled, Rejected"
-    },
-    {
-      problem: "Dummy js problem, the answer is 3",
-      options: ["0", "1", "2", "3"],
-      answer: 3,
-      solution: "The answer is 3"
     }
   ],
   py: [
@@ -51,24 +45,70 @@ const problems: ProblemList = {
         "`print()` prints text in to the terminal. There is no window involved."
     },
     {
-      problem: "Dummy py problem, the answer is 1",
-      options: ["0", "1", "2", "3"],
-      answer: 1,
-      solution: "The answer is 1"
-    },
-    {
-      problem: "Dummy py problem, the answer is 2",
-      options: ["0", "1", "2", "3"],
-      answer: 2,
-      solution: "The answer is 2"
-    },
-    {
-      problem: "Dummy py problem, the answer is 3",
-      options: ["0", "1", "2", "3"],
+      problem: "In Python, a function can take",
+      options: [
+        "0 parameters",
+        "1 parameter",
+        "2 parameters",
+        "As many parameters as needed"
+      ],
       answer: 3,
-      solution: "The answer is 3"
+      solution:
+        "The answer is (D). A function may need more than two parameters based on \
+its aim, so using more than 2 parameters is allowed."
+    },
+    {
+      problem: `Is this a valid python code?
+~~~python
+if 5 > 2:
+ print("Five is greater than two!") 
+if 5 > 3:
+        print("Five is greater than three!")
+~~~`,
+      options: ["Yes", "No"],
+      answer: 0,
+      solution:
+        "Solution: This code can run correctly, hence the answer is (A). \
+The thing is, you can have a different number of spaces as indents for each block of code, \
+as long as each block of code has a consistent number of spaces for indents. \
+If we look at the code, there are two blocks of code, the first having a one-space indent, \
+and the second having an eight-space indent. Since both indents are consistent throughout their block, \
+this code is perfectly valid."
+    }
+  ],
+  sh: [
+    {
+      problem: `In Bash, which options declare a variable?
+1. \`foo="bar"\`
+2. \`foo = "bar"\`
+3. \`foo=bar\`
+      `,
+      options: ["1 and 2 only", "1 only", "1 and 3 only", "All three"],
+      answer: 2,
+      solution:
+        'Solution: The first is valid. The second is invalid because of the spaces. \
+        This instead gets interpreted as running foo with the arguments ["=", "bar"] which is not what we desire. \
+        #3 is also valid as quotes are often optional in Bash.'
     }
   ]
+};
+
+export const langToNiceName: { [key: string]: string } = {
+  js: "JavaScript",
+  py: "Python",
+  sh: "Shell",
+  ccpp: "C/C++"
+};
+
+// Can't find a better way to do this
+export const indexToAlpha: { [key: number]: string } = {
+  0: "A",
+  1: "B",
+  2: "C",
+  3: "D",
+  4: "E",
+  5: "F",
+  6: "G"
 };
 
 export default problems;

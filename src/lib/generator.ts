@@ -1,7 +1,8 @@
 import problems from "@/lib/problems";
 
 export function generator() {
-  const lang = Math.floor(Math.random() * 2) == 0 ? "js" : "py";
+  const langList = Object.keys(problems);
+  const lang = langList[Math.floor(Math.random() * langList.length)];
   // https://stackoverflow.com/a/4550514/
   const id = Math.floor(Math.random() * problems[lang].length);
 
