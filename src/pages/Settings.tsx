@@ -38,7 +38,7 @@ export default function Settings() {
   return (
     <>
       <Helmet>
-        <title>Programming Quiz | Settings</title>
+        <title>Settings | Programming Quiz</title>
       </Helmet>
 
       <Menu settingsSelected />

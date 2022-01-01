@@ -18,7 +18,7 @@ export default function Stats() {
   return (
     <>
       <Helmet>
-        <title>Programming Quiz | Stats</title>
+        <title>Stats | Programming Quiz</title>
       </Helmet>
 
       <Menu statsSelected />

@@ -9,7 +9,7 @@ export default function Custom404() {
   return (
     <>
       <Helmet>
-        <title>Programming Quiz | 404</title>
+        <title>404 | Programming Quiz</title>
       </Helmet>
       <Menu />
       <main className={styles.main}>
