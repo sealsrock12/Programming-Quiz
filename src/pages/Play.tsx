@@ -184,10 +184,7 @@ Options: ${problemInfo.options.toString()}`
                       : ""
                   }`}
                 />
-                <span
-                  className={`${styles.insideLetter} index-${index}`}
-                  aria-hidden="true"
-                >
+                <span className={`${styles.insideLetter}`} aria-hidden="true">
                   {indexToAlpha[index]}
                 </span>
                 <label
