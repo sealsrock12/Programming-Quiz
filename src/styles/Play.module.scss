@@ -27,6 +27,11 @@ main {
     max-width: 80vw;
     border-radius: 0.25rem;
   }
+
+  section {
+    width: min(100%, 80ch);
+    margin: auto;
+  }
 }
 
 .problem {

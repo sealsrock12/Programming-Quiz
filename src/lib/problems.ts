@@ -54,7 +54,7 @@ const problems: ProblemList = {
       ],
       answer: 3,
       solution:
-        "The answer is (D). A function may need more than two parameters based on \
+        "A function may need more than two parameters based on \
 its aim, so using more than 2 parameters is allowed."
     },
     {
@@ -68,7 +68,7 @@ if 5 > 3:
       options: ["Yes", "No"],
       answer: 0,
       solution:
-        "Solution: This code can run correctly, hence the answer is (A). \
+        "This code can run correctly, hence the answer is (A). \
 The thing is, you can have a different number of spaces as indents for each block of code, \
 as long as each block of code has a consistent number of spaces for indents. \
 If we look at the code, there are two blocks of code, the first having a one-space indent, \

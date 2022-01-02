@@ -121,7 +121,7 @@ Options: ${problemInfo.options.toString()}`
       <Menu playSelected />
 
       <main className={styles.main}>
-        <div className={`${styles.problem} problem-container`}>
+        <div className={styles.problem}>
           <h1 className={styles.typeText}>
             {(() => {
               if (!onSolution) {
@@ -136,29 +136,31 @@ Options: ${problemInfo.options.toString()}`
             })()}
           </h1>
 
-          <ReactMarkdown
-            components={{
-              code({ node, inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || "");
-                return !inline && match ? (
-                  // @ts-ignore - this was copied from https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight
-                  <SyntaxHighlighter
-                    children={String(children).replace(/\n$/, "")}
-                    style={darcula}
-                    language={match[1]}
-                    PreTag="div"
-                    {...props}
-                  />
-                ) : (
-                  <code className={`${className} ${styles.code}`} {...props}>
-                    {children}
-                  </code>
-                );
-              }
-            }}
-          >
-            {onSolution ? problemInfo.solution : problemInfo.problem}
-          </ReactMarkdown>
+          <section>
+            <ReactMarkdown
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || "");
+                  return !inline && match ? (
+                    // @ts-ignore - this was copied from https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight
+                    <SyntaxHighlighter
+                      children={String(children).replace(/\n$/, "")}
+                      style={darcula}
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    />
+                  ) : (
+                    <code className={`${className} ${styles.code}`} {...props}>
+                      {children}
+                    </code>
+                  );
+                }
+              }}
+            >
+              {onSolution ? problemInfo.solution : problemInfo.problem}
+            </ReactMarkdown>
+          </section>
         </div>
         <div
           className={`${styles.optionsContainer} ${
