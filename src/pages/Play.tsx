@@ -55,15 +55,15 @@ export default function Play() {
 
   function reportError() {
     if (window.confirm("Open email in new tab?")) {
-      // email properties
-      let options = "";
-      problemInfo.options.forEach(option => {
-        options += `\n${option}`;
-      });
-      const recipient = "Programming-Quiz.outlook.com";
+      const recipient = "Programming-Quiz@outlook.com";
       const subject = "Bug in Problem";
       const body = encodeURIComponent(
-        `(Please email this to Programming-Quiz.outlook.com)\n\nBug:\n<explain here>\n\nProblem:\n${problemInfo.problem}\n\nOptions:${options}`
+        `Bug:
+<explain here>
+
+Problem: ${problemInfo.problem}
+
+Options: ${problemInfo.options.toString()}`
       );
 
       window
@@ -181,11 +181,7 @@ export default function Play() {
             {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
 
-          <Button
-            className={styles.submit}
-            title="submit"
-            onClick={reportError}
-          >
+          <Button title="submit" onClick={reportError}>
             REPORT ERROR
           </Button>
         </div>
