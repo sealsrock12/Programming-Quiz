@@ -21,9 +21,6 @@ main {
 
   pre {
     margin-top: 3rem;
-  }
-
-  pre > div {
     max-width: 80vw;
     border-radius: 0.35rem;
   }
@@ -124,7 +121,7 @@ main {
     width: 100vw;
     padding: 0.5rem;
 
-    pre > div {
+    pre {
       max-width: 90vw;
     }
   }
