@@ -92,3 +92,33 @@ code {
     Menlo, Monaco, Consolas, monospace;
   font-size: 0.9rem;
 }
+
+.close-modal {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+.close-modal-icon {
+  font-size: 1rem;
+}
+
+.top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.optionsInModel {
+  max-width: 40rem;
+  max-height: 10rem;
+  overflow: auto;
+}
+
+.info {
+  margin-top: 1rem;
+}
+
+.model-request {
+  text-align: center;
+}
