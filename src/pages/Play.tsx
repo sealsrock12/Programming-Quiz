@@ -97,13 +97,11 @@ Options: ${problemInfo.options.toString()}`
   useEffect(() => {
     localStorage.setItem("lang", problemInfo.lang);
     localStorage.setItem("id", problemInfo.id.toString());
-    setLangNiceName(langToNiceName[problemInfo.lang]);
   }, [problemInfo]);
 
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
-  const [langNiceName, setLangNiceName] = useState("");
 
   localStorage.setItem("lang", problemInfo.lang!);
   localStorage.setItem("id", problemInfo.id.toString());
@@ -119,17 +117,9 @@ Options: ${problemInfo.options.toString()}`
       <main className={styles.main}>
         <div className={styles.problem}>
           <h1 className={styles.typeText}>
-            {(() => {
-              if (!onSolution) {
-                return (
-                  <>
-                    {typeText} - {langNiceName}
-                  </>
-                );
-              } else {
-                return <>{typeText}</>;
-              }
-            })()}
+            {!onSolution
+              ? `${typeText} - ${langToNiceName[problemInfo.lang]}`
+              : typeText}
           </h1>
 
           <section>
