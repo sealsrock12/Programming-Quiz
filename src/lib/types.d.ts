@@ -5,6 +5,11 @@ interface Problem {
   solution: string;
 }
 
+interface PopulatedProblem extends Problem {
+  id: number;
+  lang: string;
+}
+
 interface ProblemList {
   [lang: string]: Problem[];
 }

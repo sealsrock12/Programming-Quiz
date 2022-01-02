@@ -56,7 +56,7 @@ export default function Play() {
       setOnSolution(false);
       setSelected(-1);
       setTypeText("Problem");
-      setProblemInfo(generator());
+      setProblemInfo(generator(problemInfo));
       localStorage.removeItem("onSolution");
       return;
     }
@@ -84,9 +84,6 @@ export default function Play() {
       }
       setTypeText("Sorry, incorrect.");
     }
-
-    console.log(problemInfo.solution);
-    console.log(problemInfo.options);
   }
 
   function reportError() {
@@ -136,13 +133,11 @@ export default function Play() {
   useEffect(() => {
     localStorage.setItem("lang", problemInfo.lang);
     localStorage.setItem("id", problemInfo.id.toString());
-    setLangNiceName(langToNiceName[problemInfo.lang]);
   }, [problemInfo]);
 
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
-  const [langNiceName, setLangNiceName] = useState("");
 
   localStorage.setItem("lang", problemInfo.lang!);
   localStorage.setItem("id", problemInfo.id.toString());
@@ -158,17 +153,9 @@ export default function Play() {
       <main className={styles.main}>
         <div className={styles.problem}>
           <h1 className={styles.typeText}>
-            {(() => {
-              if (!onSolution) {
-                return (
-                  <>
-                    {typeText} - {langNiceName}
-                  </>
-                );
-              } else {
-                return <>{typeText}</>;
-              }
-            })()}
+            {!onSolution
+              ? `${typeText} - ${langToNiceName[problemInfo.lang]}`
+              : typeText}
           </h1>
 
           <section>
@@ -220,10 +207,7 @@ export default function Play() {
                       : ""
                   }`}
                 />
-                <span
-                  className={`${styles.insideLetter} index-${index}`}
-                  aria-hidden="true"
-                >
+                <span className={`${styles.insideLetter}`} aria-hidden="true">
                   {indexToAlpha[index]}
                 </span>
                 <label

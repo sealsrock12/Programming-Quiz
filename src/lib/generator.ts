@@ -1,14 +1,23 @@
 import problems from "@/lib/problems";
 
-export function generator() {
-  const langList = Object.keys(problems);
-  const lang = langList[Math.floor(Math.random() * langList.length)];
-  // https://stackoverflow.com/a/4550514/
-  const id = Math.floor(Math.random() * problems[lang].length);
+export function generator(previous?: PopulatedProblem) {
+  let flatProblems: PopulatedProblem[] = [];
+  Object.keys(problems).forEach(lang => {
+    problems[lang].forEach((problem, id) => {
+      flatProblems.push({
+        id,
+        lang,
+        ...problem
+      });
+    });
+  });
 
-  return {
-    lang,
-    id,
-    ...problems[lang][id]
-  };
+  if (previous && flatProblems.includes(previous)) {
+    const i = flatProblems.indexOf(previous);
+    flatProblems.splice(i + 1);
+  }
+
+  const index = Math.floor(Math.random() * flatProblems.length);
+
+  return flatProblems[index];
 }
