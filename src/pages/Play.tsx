@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import Modal from "react-modal";
 
 import Menu from "@/components/Menu";
 import Button from "@/components/Button";
@@ -14,7 +15,42 @@ import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
+
 export default function Play() {
+  const [modalIsOpen, setIsOpen] = useState(false);
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      borderRadius: "0.8rem",
+      transition: "0.3s ease"
+    }
+  };
+
+  Modal.setAppElement("#app");
+
+  let subtitle;
+
+  function openModal() {
+    setIsOpen(true);
+  }
+
+  function afterOpenModal() {
+    // references are now sync'd and can be accessed.
+  }
+
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   function submit() {
     if (onSolution) {
       setOnSolution(false);
@@ -54,22 +90,22 @@ export default function Play() {
   }
 
   function reportError() {
-    if (window.confirm("Open email in new tab?")) {
-      const recipient = "Programming-Quiz@outlook.com";
-      const subject = "Bug in Problem";
-      const body = encodeURIComponent(
-        `Bug:
-<explain here>
+    // if (window.confirm("Open email in new tab?")) {
+    //   const recipient = "Programming-Quiz@outlook.com";
+    //   const subject = "Bug in Problem";
+    //   const body = encodeURIComponent(
+    //     `Bug:
+    // <explain here>
+    // Problem: ${problemInfo.problem}
+    // Options: ${problemInfo.options.toString()}`
+    //   );
+    //   window
+    //     .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
+    //     .focus();
+    // }
 
-Problem: ${problemInfo.problem}
-
-Options: ${problemInfo.options.toString()}`
-      );
-
-      window
-        .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
-        .focus();
-    }
+    console.log("d");
+    openModal();
   }
 
   function onOptionSelect(e) {
@@ -210,7 +246,50 @@ Options: ${problemInfo.options.toString()}`
             REPORT ERROR
           </Button>
         </div>
+
+        {/* Modal */}
+        <Modal
+          isOpen={modalIsOpen}
+          onAfterOpen={afterOpenModal}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="Example Modal"
+        >
+          <div className="top">
+            <button onClick={closeModal} className="close-modal">
+              <FontAwesomeIcon icon={faTimes} className="close-modal-icon" />
+            </button>
+          </div>
+          <div>
+            <h2 className="model-request">
+              Please email to
+              <span className="bold"> Programming-Quiz.outlook.com</span>
+            </h2>
+
+            <div className="info">
+              <span className="bold">Problem:</span> {problemInfo.problem}
+              <div className="optionsInModel">
+                <span className="bold">Options: </span>{" "}
+                {problemInfo.options.toString()}
+              </div>
+            </div>
+          </div>
+        </Modal>
       </main>
     </>
   );
 }
+
+// if (window.confirm("Open email in new tab?")) {
+//   const recipient = "Programming-Quiz@outlook.com";
+//   const subject = "Bug in Problem";
+//   const body = encodeURIComponent(
+//     `Bug:
+// <explain here>
+// Problem: ${problemInfo.problem}
+// Options: ${problemInfo.options.toString()}`
+//   );
+//   window
+//     .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
+//     .focus();
+// }

@@ -93,10 +93,32 @@ code {
   font-size: 0.9rem;
 }
 
-.index-2 {
-  left: -15.8px !important;
+.close-modal {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  float: right;
 }
 
-.index-3 {
-  left: -15.3px !important;
+.close-modal-icon {
+  font-size: 1rem;
+}
+
+.top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.optionsInModel {
+  max-width: 40rem;
+  max-height: 10rem;
+  overflow: auto;
+}
+
+.info {
+  margin-top: 1rem;
+}
+
+.model-request {
+  text-align: center;
 }
