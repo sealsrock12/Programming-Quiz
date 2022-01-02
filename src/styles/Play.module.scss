@@ -72,13 +72,11 @@ main {
 
 .optionWrapper {
   display: flex;
-  // align-items: center;
+  align-items: center;
   margin-bottom: 0.2rem;
 }
 
 .option {
-  position: relative;
-  bottom: -2px;
   width: 20px;
   height: 20px;
   border-radius: 25%;
@@ -112,8 +110,7 @@ main {
 .insideLetter {
   width: fit-content;
   position: relative;
-  left: -15.3px;
-  bottom: -0.2px;
+  left: -16px;
   pointer-events: none;
 }
 
@@ -129,6 +126,16 @@ main {
     pre > div {
       max-width: 90vw;
     }
+  }
+
+  .option {
+    width: 30px;
+    height: 30px;
+  }
+
+  .insideLetter {
+    left: -22px;
+    font-size: 20px;
   }
 }
 
