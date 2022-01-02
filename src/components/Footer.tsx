@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={styles.customFooter}>
       <span>
-        <span className={styles.copyright}>Copyright</span> &copy; 2021
+        <span className={styles.copyright}>Copyright</span> &copy; 2022
         <span>
           <a
             href="https://github.com/CubingSoda"

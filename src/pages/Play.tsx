@@ -150,30 +150,40 @@ Options: ${problemInfo.options.toString()}`
           </ReactMarkdown>
         </div>
         <div
-          className={`${styles.optionsContainer} ${onSolution ? "HIDDEN" : ""}`}
+          className={`${styles.optionsContainer} ${
+            onSolution ? styles.frozen : ""
+          }`}
         >
-          <div className={styles.options}>
-            {problemInfo.options.map((option, index) => {
-              return (
-                <div className={styles.option} key={uuidv4()}>
-                  <input
-                    type="radio"
-                    id={`option-${index}`}
-                    name={`option`}
-                    value={index}
-                    checked={selected === index}
-                    onChange={onOptionSelect}
-                  />
-                  <label
-                    htmlFor={`option-${index}`}
-                    className={styles.optionLabel}
-                  >
-                    ({indexToAlpha[index]}) {option}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
+          {problemInfo.options.map((option, index) => {
+            return (
+              <div className={styles.optionWrapper} key={uuidv4()}>
+                <input
+                  type="radio"
+                  id={`option-${index}`}
+                  name={`option`}
+                  value={index}
+                  checked={selected === index}
+                  onChange={onOptionSelect}
+                  className={`${styles.option} ${
+                    onSolution &&
+                    problemInfo.answer === index &&
+                    selected !== index
+                      ? styles.correct
+                      : null
+                  }`}
+                />
+                <span className={styles.insideLetter} aria-hidden="true">
+                  {indexToAlpha[index]}
+                </span>
+                <label
+                  htmlFor={`option-${index}`}
+                  className={styles.optionLabel}
+                >
+                  {option}
+                </label>
+              </div>
+            );
+          })}
         </div>
 
         <div className={styles.controls}>

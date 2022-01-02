@@ -35,6 +35,7 @@ main {
 
 .optionsContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin-top: 2rem;
 }
@@ -57,8 +58,46 @@ main {
   font-family: "Space Mono", "Inter", sans-serif;
 }
 
-.optionLabel {
-  padding-left: 0.3rem;
+.optionWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.option {
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  // z-index: 1;
+
+  &:hover {
+    border-color: var(--hover-border);
+  }
+
+  &:checked {
+    background-color: var(--text-color);
+    & ~ .insideLetter {
+      color: var(--bg-color);
+    }
+  }
+
+  &.correct {
+    background-color: var(--color-green);
+  }
+}
+
+.frozen {
+  pointer-events: none !important;
+}
+
+.insideLetter {
+  position: relative;
+  left: -16px;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 600px) {
