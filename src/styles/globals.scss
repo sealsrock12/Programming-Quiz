@@ -77,6 +77,15 @@ main {
   font-weight: bold;
 }
 
+.ReactModalPortal > div {
+  background-color: rgb(255 255 255 / 10%) !important;
+  transition: 0.3s ease-in !important;
+}
+
+.ReactModalPortal {
+  transition: 0.3s ease-in !important;
+}
+
 h1,
 h2,
 h3,

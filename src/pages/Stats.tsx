@@ -51,7 +51,7 @@ export default function Stats() {
             icon={faTriangleExclamation}
             className={styles.faTriangleExclamation}
           />
-          Reset all settings
+          Reset all stats
         </section>
 
         <div className={styles.chartContainer}>
