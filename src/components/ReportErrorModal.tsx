@@ -34,6 +34,7 @@ const ReportErrorModal: FC<{
     <Modal
       isOpen={isOpen}
       onRequestClose={closeModal}
+      closeTimeoutMS={300}
       style={customStyles}
       contentLabel="Report Error"
     >

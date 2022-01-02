@@ -77,13 +77,23 @@ main {
   font-weight: bold;
 }
 
-.ReactModalPortal > div {
-  background-color: rgb(255 255 255 / 10%) !important;
-  transition: 0.3s ease-in !important;
+.ReactModal__Overlay {
+  background-color: rgba(255, 255, 255, 10%) !important;
 }
 
-.ReactModalPortal {
-  transition: 0.3s ease-in !important;
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
 }
 
 h1,
