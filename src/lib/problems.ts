@@ -119,7 +119,7 @@ const problems: ProblemList = {
       solution:
         'Solution: The first is valid. The second is invalid because of the spaces. \
             This instead gets interpreted as running foo with the arguments ["=", "bar"] which is not what we desire. \
-            #3 is also valid as quotes are often optional in Bash.'
+            (C) is also valid as quotes are often optional in Bash.'
     },
     {
       problem: "In Bash, what is the `.bashrc` file?",
@@ -131,7 +131,22 @@ const problems: ProblemList = {
       ],
       answer: 2,
       solution:
-        "The answer is #3. Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance."
+        "The answer is (C). Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance."
+    }
+  ],
+  java: [
+    {
+      problem:
+        "In Java, non-primitive data types are ________, and one example is a(n) ________.",
+      options: [
+        "predefined, integer",
+        "not predefined, string",
+        "predefined, array",
+        "None of the above"
+      ],
+      answer: 1,
+      solution:
+        "The answer is (B). Primitive types, like `int` or `boolean`, are immediately defined (in this case, `0` and `false` respectively), even if you haven't assigned a value to it. Likewise, non-primitive types, like string or array, are not immediately defined."
     }
   ]
 };
@@ -140,7 +155,8 @@ export const langToNiceName: { [key: string]: string } = {
   js: "JavaScript",
   py: "Python",
   sh: "Shell",
-  ccpp: "C/C++"
+  ccpp: "C/C++",
+  java: "Java"
 };
 
 // Can't find a better way to do this

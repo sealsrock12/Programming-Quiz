@@ -26,3 +26,14 @@
     font-size: 0;
   }
 }
+
+@media (max-width: 420px) {
+  .dash {
+    // 310 327
+    font-size: 0;
+  }
+
+  .credits {
+    display: block;
+  }
+}

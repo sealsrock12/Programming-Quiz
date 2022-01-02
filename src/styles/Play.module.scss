@@ -117,6 +117,10 @@ main {
   pointer-events: none;
 }
 
+.optionLabel {
+  max-width: 64vw;
+}
+
 @media screen and (max-width: 600px) {
   main {
     width: 100vw;
