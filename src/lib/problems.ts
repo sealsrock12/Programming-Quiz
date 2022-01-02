@@ -13,11 +13,11 @@ const problems: ProblemList = {
     },
     {
       problem:
-        "We can declare a variable in JavaScript using `var`, `let`, and `const`. Which way lets us reassign it?",
+        "We can declare a variable in JavaScript using `var`, `let`, and `const`. Which methods let us reassign the variable in the future?",
       options: ["var/let", "const/let", "const/var", "None of the above"],
       answer: 0,
       solution:
-        "`const` will make it a constant (un changeable). So it will be the other two."
+        "`const` will make it a constant (un-changeable). So it will be the other two."
     },
     {
       problem: "What are the states of a JavaScript promise?",
@@ -74,6 +74,37 @@ as long as each block of code has a consistent number of spaces for indents. \
 If we look at the code, there are two blocks of code, the first having a one-space indent, \
 and the second having an eight-space indent. Since both indents are consistent throughout their block, \
 this code is perfectly valid."
+    },
+    {
+      problem: `
+Which of the following python codes are valid?
+~~~python
+# Code one
+x = 3
+if 10 > x >= -1:
+    print("x is less than ten, and greater than equal to negative one!")
+# End code one
+
+# Code two
+x = 0;
+if 10 > x >= -1:
+    print("x is less than ten, and greater than equal to negative one!");
+# End code two
+
+# Code three
+x = 0;
+if 10 > x >= -1{
+     print("x is less than ten, and greater than equal to negative one!");
+}
+# End code three
+~~~`,
+      options: ["Only 1", "1, 2", "2, 3", "All are valid"],
+      answer: 1,
+      solution:
+        "Solution: As weird as it seems, codes one and two are both valid. \
+Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
+as in python, you can use semicolons as separators, although there are not mandatory. \
+Code three is incorrect as curly brackets were never a thing in python."
     }
   ],
   sh: [
