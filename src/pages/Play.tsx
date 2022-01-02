@@ -53,6 +53,25 @@ export default function Play() {
     console.log(problemInfo.options);
   }
 
+  function reportError() {
+    if (window.confirm("Open email in new tab?")) {
+      // email properties
+      let options = "";
+      problemInfo.options.forEach(option => {
+        options += `\n${option}`;
+      });
+      const recipient = "Programming-Quiz.outlook.com";
+      const subject = "Bug in Problem";
+      const body = encodeURIComponent(
+        `(Please email this to Programming-Quiz.outlook.com)\n\nBug:\n<explain here>\n\nProblem:\n${problemInfo.problem}\n\nOptions:${options}`
+      );
+
+      window
+        .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
+        .focus();
+    }
+  }
+
   function onOptionSelect(e) {
     setSelected(parseInt(e.currentTarget.value));
   }
@@ -160,6 +179,14 @@ export default function Play() {
         <div className={styles.controls}>
           <Button className={styles.submit} title="submit" onClick={submit}>
             {onSolution ? "NEXT" : "SUBMIT"}
+          </Button>
+
+          <Button
+            className={styles.submit}
+            title="submit"
+            onClick={reportError}
+          >
+            REPORT ERROR
           </Button>
         </div>
       </main>
