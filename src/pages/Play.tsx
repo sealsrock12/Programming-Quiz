@@ -160,9 +160,7 @@ Options: ${problemInfo.options.toString()}`
             {onSolution ? problemInfo.solution : problemInfo.problem}
           </ReactMarkdown>
         </div>
-        <div
-          className={`${styles.optionsContainer} ${onSolution ? "HIDDEN" : ""}`}
-        >
+        <div className={styles.optionsContainer}>
           <div className={styles.options}>
             {problemInfo.options.map((option, index) => {
               return (
