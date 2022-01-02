@@ -182,10 +182,13 @@ Options: ${problemInfo.options.toString()}`
                     problemInfo.answer === index &&
                     selected !== index
                       ? styles.correct
-                      : null
+                      : ""
                   }`}
                 />
-                <span className={styles.insideLetter} aria-hidden="true">
+                <span
+                  className={`${styles.insideLetter} index-${index}`}
+                  aria-hidden="true"
+                >
                   {indexToAlpha[index]}
                 </span>
                 <label

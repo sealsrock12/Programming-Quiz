@@ -65,15 +65,16 @@ main {
 
 .optionWrapper {
   display: flex;
-  align-items: center;
+  // align-items: center;
+  margin-bottom: 0.3rem;
 }
 
 .option {
   width: 20px;
   height: 20px;
-  border-radius: 100%;
+  border-radius: 25%;
   background-color: var(--bg-color);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -100,8 +101,10 @@ main {
 }
 
 .insideLetter {
+  width: fit-content;
   position: relative;
-  left: -16px;
+  left: -15.3px;
+  bottom: 0.12rem;
   pointer-events: none;
 }
 
