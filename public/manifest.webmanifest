@@ -5,7 +5,7 @@
   "scope": "/",
   "start_url": "/",
   "name": "Programming Quiz",
-  "short_name": "Programming Quiz",
+  "short_name": "Quiz",
   "description": "Test out your programming knowledge with this quiz!",
   "shortcuts": [
     {
