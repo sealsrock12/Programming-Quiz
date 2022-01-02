@@ -13,6 +13,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
+import { type } from "os";
 
 export default function Play() {
   function submit() {
@@ -122,7 +123,17 @@ export default function Play() {
       <main className={styles.main}>
         <div className={`${styles.problem} problem-container`}>
           <h1 className={styles.typeText}>
-            {typeText} - {langNiceName}
+            {(() => {
+              if (!onSolution) {
+                return (
+                  <>
+                    {typeText} - {langNiceName}
+                  </>
+                );
+              } else {
+                return <>{typeText}</>;
+              }
+            })()}
           </h1>
 
           <ReactMarkdown
