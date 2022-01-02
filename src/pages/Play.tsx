@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
-import Modal from "react-modal";
 
 import Menu from "@/components/Menu";
 import Button from "@/components/Button";
@@ -14,43 +13,9 @@ import "@/lib/prism.js";
 import "@/styles/prism.css";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
-import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
+import ReportErrorModal from "@/components/ReportErrorModal";
 
 export default function Play() {
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      borderRadius: "0.8rem",
-      transition: "0.3s ease"
-    }
-  };
-
-  Modal.setAppElement("#app");
-
-  let subtitle;
-
-  function openModal() {
-    setIsOpen(true);
-  }
-
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-  }
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
   function submit() {
     if (onSolution) {
       setOnSolution(false);
@@ -84,25 +49,6 @@ export default function Play() {
       }
       setTypeText("Sorry, incorrect.");
     }
-  }
-
-  function reportError() {
-    // if (window.confirm("Open email in new tab?")) {
-    //   const recipient = "Programming-Quiz@outlook.com";
-    //   const subject = "Bug in Problem";
-    //   const body = encodeURIComponent(
-    //     `Bug:
-    // <explain here>
-    // Problem: ${problemInfo.problem}
-    // Options: ${problemInfo.options.toString()}`
-    //   );
-    //   window
-    //     .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
-    //     .focus();
-    // }
-
-    console.log("d");
-    openModal();
   }
 
   function onOptionSelect(e) {
@@ -143,6 +89,7 @@ export default function Play() {
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
+  const [errorOpen, setErrorOpen] = useState(false);
 
   localStorage.setItem("lang", problemInfo.lang!);
   localStorage.setItem("id", problemInfo.id.toString());
@@ -164,27 +111,7 @@ export default function Play() {
           </h1>
 
           <section>
-            <ReactMarkdown
-            /*               components={{
-                code({ node, inline, className, children, ...props }) {
-                  const match = /language-(\w+)/.exec(className || "");
-                  return !inline && match ? (
-                    // @ts-ignore - this was copied from https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight
-                    <SyntaxHighlighter
-                      children={String(children).replace(/\n$/, "")}
-                      style={darcula}
-                      language={match[1]}
-                      PreTag="div"
-                      {...props}
-                    />
-                  ) : (
-                    <code className={`${className} ${styles.code}`} {...props}>
-                      {children}
-                    </code>
-                  );
-                }
-              }} */
-            >
+            <ReactMarkdown>
               {onSolution ? problemInfo.solution : problemInfo.problem}
             </ReactMarkdown>
           </section>
@@ -226,59 +153,22 @@ export default function Play() {
           })}
         </div>
 
+        <ReportErrorModal
+          problemInfo={problemInfo}
+          isOpen={errorOpen}
+          setIsOpen={setErrorOpen}
+        />
+
         <div className={styles.controls}>
           <Button className={styles.submit} title="submit" onClick={submit}>
             {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
 
-          <Button title="submit" onClick={reportError}>
+          <Button title="submit" onClick={() => setErrorOpen(true)}>
             REPORT ERROR
           </Button>
         </div>
-
-        {/* Modal */}
-        <Modal
-          isOpen={modalIsOpen}
-          onAfterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="Example Modal"
-        >
-          <div className="top">
-            <button onClick={closeModal} className="close-modal">
-              <FontAwesomeIcon icon={faTimes} className="close-modal-icon" />
-            </button>
-          </div>
-          <div>
-            <h2 className="model-request">
-              Please email to
-              <span className="bold"> Programming-Quiz.outlook.com</span>
-            </h2>
-
-            <div className="info">
-              <span className="bold">Problem:</span> {problemInfo.problem}
-              <div className="optionsInModel">
-                <span className="bold">Options: </span>{" "}
-                {problemInfo.options.toString()}
-              </div>
-            </div>
-          </div>
-        </Modal>
       </main>
     </>
   );
 }
-
-// if (window.confirm("Open email in new tab?")) {
-//   const recipient = "Programming-Quiz@outlook.com";
-//   const subject = "Bug in Problem";
-//   const body = encodeURIComponent(
-//     `Bug:
-// <explain here>
-// Problem: ${problemInfo.problem}
-// Options: ${problemInfo.options.toString()}`
-//   );
-//   window
-//     .open(`mailto:${recipient}?subject=${subject}&body=${body}`, "_blank")!
-//     .focus();
-// }

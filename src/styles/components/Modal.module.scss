@@ -1,0 +1,30 @@
+.close {
+  background-color: var(--bg-color);
+  border: none;
+  cursor: pointer;
+  float: right;
+}
+
+.closeIcon {
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.options {
+  max-width: 40rem;
+  max-height: 10rem;
+  overflow: auto;
+}
+
+.info {
+  margin-top: 1rem;
+}
+
+.request {
+  text-align: center;
+}
