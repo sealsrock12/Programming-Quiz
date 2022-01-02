@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
+// import * as serviceWorker from "/sw.js";
 
 import { isJSON, defaultSettings } from "@/lib/site";
 
@@ -47,3 +48,9 @@ ReactDOM.render(
   </Suspense>,
   document.getElementById("app")
 );
+
+// if ("serviceWorker" in navigator) {
+//   navigator.serviceWorker.register("/sw.js");
+// }
+
+// serviceWorker.register();

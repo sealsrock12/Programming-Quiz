@@ -19,14 +19,13 @@ main {
     width: 16px;
   }
 
-  // @media (max-width: 640px) {
-  //   width: 100vw;
-  //   align-items: flex-start;
-  //   align-self: flex-start;
-  // }
+  pre {
+    margin-top: 3rem;
+  }
 
   pre > div {
     max-width: 80vw;
+    border-radius: 0.25rem;
   }
 }
 

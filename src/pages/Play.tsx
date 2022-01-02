@@ -103,7 +103,7 @@ export default function Play() {
       <main className={styles.main}>
         <div className={`${styles.problem} problem-container`}>
           <h1 className={styles.typeText}>
-            {typeText} ({langNiceName})
+            {typeText} - {langNiceName}
           </h1>
 
           <ReactMarkdown
