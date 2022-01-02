@@ -9,8 +9,8 @@ import { indexToAlpha, langToNiceName } from "@/lib/problems";
 import styles from "@/styles/Play.module.scss";
 
 import ReactMarkdown from "react-markdown";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
+import "@/lib/prism.js";
+import "@/styles/prism.css";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 
@@ -99,6 +99,11 @@ Options: ${problemInfo.options.toString()}`
     localStorage.setItem("id", problemInfo.id.toString());
   }, [problemInfo]);
 
+  useEffect(() => {
+    // @ts-ignore
+    Prism.highlightAll();
+  });
+
   const [onSolution, setOnSolution] = useState(false);
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
@@ -124,7 +129,7 @@ Options: ${problemInfo.options.toString()}`
 
           <section>
             <ReactMarkdown
-              components={{
+            /*               components={{
                 code({ node, inline, className, children, ...props }) {
                   const match = /language-(\w+)/.exec(className || "");
                   return !inline && match ? (
@@ -142,7 +147,7 @@ Options: ${problemInfo.options.toString()}`
                     </code>
                   );
                 }
-              }}
+              }} */
             >
               {onSolution ? problemInfo.solution : problemInfo.problem}
             </ReactMarkdown>
