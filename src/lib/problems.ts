@@ -132,6 +132,23 @@ The third case is also valid as quotes are often optional in Bash.'
       solution:
         "The answer is (C). Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance."
     }
+  ],
+  java: [
+    {
+      problem: `Fill in the blank: 
+In Java, non-primitive data types are ________, and one example is a(n) ________.`,
+      options: [
+        '"predefined", "integer"',
+        '"not predefined", "string"',
+        '"predefined", "array"',
+        "None of the above."
+      ],
+      answer: 1,
+      solution:
+        "Primitive types, like int or boolean, are immediately defined \
+(in this case, 0 and false respectively), even if you haven't assigned a value to it. \
+Likewise, non-primitive types, like string or array, are not immediately defined."
+    }
   ]
 };
 
@@ -139,7 +156,8 @@ export const langToNiceName: { [key: string]: string } = {
   js: "JavaScript",
   py: "Python",
   sh: "Shell",
-  ccpp: "C/C++"
+  ccpp: "C/C++",
+  java: "Java"
 };
 
 // Can't find a better way to do this
