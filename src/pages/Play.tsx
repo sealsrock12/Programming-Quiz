@@ -13,7 +13,6 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
-import { type } from "os";
 
 export default function Play() {
   function submit() {
@@ -195,7 +194,7 @@ Options: ${problemInfo.options.toString()}`
                   htmlFor={`option-${index}`}
                   className={styles.optionLabel}
                 >
-                  {option}
+                  <ReactMarkdown>{option}</ReactMarkdown>
                 </label>
               </div>
             );
