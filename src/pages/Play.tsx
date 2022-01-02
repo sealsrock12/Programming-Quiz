@@ -20,7 +20,7 @@ export default function Play() {
       setOnSolution(false);
       setSelected(-1);
       setTypeText("Problem");
-      setProblemInfo(generator());
+      setProblemInfo(generator(problemInfo));
       localStorage.removeItem("onSolution");
       return;
     }
@@ -48,9 +48,6 @@ export default function Play() {
       }
       setTypeText("Sorry, incorrect.");
     }
-
-    console.log(problemInfo.solution);
-    console.log(problemInfo.options);
   }
 
   function reportError() {

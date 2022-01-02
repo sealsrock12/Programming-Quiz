@@ -1,6 +1,6 @@
 import problems from "@/lib/problems";
 
-export function generator() {
+export function generator(previous?: PopulatedProblem) {
   let flatProblems: PopulatedProblem[] = [];
   Object.keys(problems).forEach(lang => {
     problems[lang].forEach((problem, id) => {
@@ -11,6 +11,11 @@ export function generator() {
       });
     });
   });
+
+  if (previous && flatProblems.includes(previous)) {
+    const i = flatProblems.indexOf(previous);
+    flatProblems.splice(i + 1);
+  }
 
   const index = Math.floor(Math.random() * flatProblems.length);
 
