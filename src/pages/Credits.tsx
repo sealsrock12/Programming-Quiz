@@ -13,7 +13,9 @@ export default function Credits() {
       <Menu />
       <main className={styles.main}>
         <h1>Credits</h1>
-        <p>Thank you to these people for making this app possible.</p>
+        <p className={styles.thanks}>
+          Thank you to these people for making this app possible.
+        </p>
         <ul>
           <li>
             <a href="https://github.com/CubingSoda">CubingSoda</a>/
@@ -32,7 +34,7 @@ export default function Credits() {
           <li>
             <a href="https://artofproblemsolving.com/community/user/OlympusHero">
               OlympusHero
-            </a>{" "}
+            </a>
             - Problem writer
           </li>
           <li>

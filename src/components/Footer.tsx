@@ -26,8 +26,10 @@ export default function Footer() {
           </a>
         </span>
         <span>
-          {" "}
-          - <a href="/credits">Credits</a>
+          <span className={styles.dash}> - </span>
+          <a href="/credits" className={styles.credits}>
+            Credits
+          </a>
         </span>
       </span>
     </footer>
