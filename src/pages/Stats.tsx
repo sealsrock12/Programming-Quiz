@@ -1,8 +1,20 @@
 import { Helmet } from "react-helmet";
 import { PieChart } from "react-minimal-pie-chart";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+
 import Menu from "@/components/Menu";
 import styles from "@/styles/Stats.module.scss";
+
+function reset() {
+  // handler for resetting settings to default
+  if (window.confirm("Are you sure you want to reset all stats?")) {
+    localStorage.removeItem("problemsRight");
+    localStorage.removeItem("problemsWrong");
+    window.location.reload();
+  }
+}
 
 export default function Stats() {
   let hasProblems: boolean, problemsRight: number, problemsWrong: number;
@@ -33,6 +45,14 @@ export default function Stats() {
             <span className="bold">{problemsWrong!}</span>
           </div>
         </div>
+
+        <section className={styles.reset} onClick={reset}>
+          <FontAwesomeIcon
+            icon={faTriangleExclamation}
+            className={styles.faTriangleExclamation}
+          />
+          Reset all settings
+        </section>
 
         <div className={styles.chartContainer}>
           {hasProblems ? (
