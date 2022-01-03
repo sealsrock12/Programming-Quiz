@@ -77,31 +77,27 @@ this code is perfectly valid."
     },
     {
       problem: `
-Which of the following Python codes are valid?
+Which of the following Python snippets are valid?
 ~~~python
-# Code one
 x = 3
 if 10 > x >= -1:
     print("x is less than ten, and greater than equal to negative one!")
-# End code one
-
-# Code two
+~~~
+~~~python
 x = 0;
 if 10 > x >= -1:
     print("x is less than ten, and greater than equal to negative one!");
-# End code two
-
-# Code three
+~~~
+~~~python
 x = 0;
 if 10 > x >= -1{
       print("x is less than ten, and greater than equal to negative one!");
 }
-# End code three
 ~~~`,
-      options: ["Only 1", "1, 2", "2, 3", "All are valid"],
+      options: ["Only #1", "#1 and !2", "#2 and #3", "All three"],
       answer: 1,
       solution:
-        "Solution: As weird as it seems, codes one and two are both valid. \
+        "Solution: As weird as it seems, snippets one and two are both valid. \
 Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
 as in python, you can use semicolons as separators, although there are not mandatory. \
 Code three is incorrect as curly brackets were never a thing in python."
