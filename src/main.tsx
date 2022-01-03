@@ -5,9 +5,7 @@ import ReactDOM from "react-dom";
 import { isJSON, defaultSettings } from "@/lib/site";
 
 // styles for the entire web page
-import "@/styles//globals.scss";
-import "@/styles/theme.scss";
-import "@/styles/markup.scss";
+import "@/styles/index.scss";
 
 // remove console.log() in production - Remove to debug in production
 if (process.env.NODE_ENV === "production") {
@@ -28,7 +26,7 @@ const renderLoader = () => <p></p>;
 
 // Apply settings
 const currentSettings =
-  isJSON(localStorage.getItem("settings")) && localStorage.getItem("settings")
+  isJSON(localStorage.getItem("settings")!) && localStorage.getItem("settings")
     ? JSON.parse(localStorage.getItem("settings")!)
     : defaultSettings;
 
