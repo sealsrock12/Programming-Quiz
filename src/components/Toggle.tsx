@@ -17,11 +17,15 @@ function onChange(e, name) {
 
   // Dark mode
   if (name === "lightMode") {
-    if (e.target.checked) {
-      document.body.classList.add("light");
-    } else {
-      document.body.classList.remove("light");
-    }
+    import("@/styles/bg-transition.scss").then(x => {
+      console.error("x");
+
+      if (e.target.checked) {
+        document.body.classList.add("light");
+      } else {
+        document.body.classList.remove("light");
+      }
+    });
   }
 }
 

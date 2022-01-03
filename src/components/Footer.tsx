@@ -22,13 +22,14 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            SealsRock12
+            SealsRock12{" "}
           </a>
         </span>
         <span>
-          <span className={styles.dash}> - </span>
+          and
           <a href="/credits" className={styles.credits}>
-            Credits
+            {" "}
+            Contributors
           </a>
         </span>
       </span>
