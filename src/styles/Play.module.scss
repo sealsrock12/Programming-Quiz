@@ -20,7 +20,9 @@ main {
   }
 
   pre {
-    margin-top: 3rem;
+    &:first-of-type {
+      margin-top: 3rem;
+    }
     max-width: 80vw;
     border-radius: 0.35rem;
   }

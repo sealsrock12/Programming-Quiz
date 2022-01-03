@@ -6,30 +6,9 @@ export default function Footer() {
       <span>
         <span className={styles.copyright}>Copyright</span> &copy; 2022
         <span>
-          <a
-            href="https://github.com/CubingSoda"
-            target="_blank"
-            rel="noreferrer"
-          >
-            {" "}
-            CubingSoda
-          </a>
-        </span>
-        <span className={styles.and}> and </span>
-        <span>
-          <a
-            href="https://github.com/SealsRock12"
-            target="_blank"
-            rel="noreferrer"
-          >
-            SealsRock12{" "}
-          </a>
-        </span>
-        <span>
-          and
+          {" "}
           <a href="/credits" className={styles.credits}>
-            {" "}
-            Contributors
+            Programming Quiz Contributors
           </a>
         </span>
       </span>
