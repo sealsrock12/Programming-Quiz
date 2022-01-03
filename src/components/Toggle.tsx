@@ -3,8 +3,6 @@ import styles from "@/styles/components/Toggle.module.scss";
 import { isJSON, defaultSettings } from "@/lib/site";
 
 function onChange(e, name) {
-  console.log(e.target.checked);
-
   const currentSettings =
     isJSON(localStorage.getItem("settings")) && localStorage.getItem("settings")
       ? JSON.parse(localStorage.getItem("settings")!)
@@ -14,11 +12,10 @@ function onChange(e, name) {
   console.log(currentSettings);
 
   localStorage.setItem("settings", JSON.stringify(currentSettings));
-
   // Dark mode
   if (name === "lightMode") {
     import("@/styles/bg-transition.scss").then(x => {
-      console.error("x");
+      console.log("Imported bg-transition.scss");
 
       if (e.target.checked) {
         document.body.classList.add("light");

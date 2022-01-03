@@ -9,6 +9,11 @@ import "@/styles//globals.scss";
 import "@/styles/theme.scss";
 import "@/styles/markup.scss";
 
+// remove console.log() in production - Remove to debug in production
+if (process.env.NODE_ENV === "production") {
+  console.log = () => {};
+}
+
 const Home = lazy(() => import("@/pages/Home"));
 const Play = lazy(() => import("@/pages/Play"));
 const Settings = lazy(() => import("@/pages/Settings"));

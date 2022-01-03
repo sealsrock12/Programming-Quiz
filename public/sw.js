@@ -1,5 +1,7 @@
 // This is the "Offline copy of assets" service worker
 
+self.__WB_DISABLE_DEV_LOGS = true;
+
 const CACHE = "offline";
 
 importScripts(
