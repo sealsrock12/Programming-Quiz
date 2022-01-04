@@ -34,7 +34,7 @@ export default function Credits() {
           <li>
             <a href="https://artofproblemsolving.com/community/user/OlympusHero">
               OlympusHero
-            </a>
+            </a>{" "}
             - Problem writer
           </li>
           <li>
