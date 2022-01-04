@@ -145,6 +145,14 @@ In Java, non-primitive data types are ________, and one example is a(n) ________
 (in this case, 0 and false respectively), even if you haven't assigned a value to it. \
 Likewise, non-primitive types, like string or array, are not immediately defined."
     }
+  ],
+  ccpp: [
+    {
+      problem: "Dummy ccpp prob",
+      options: ["1", "2", "3", "4"],
+      answer: 1,
+      solution: "1!"
+    }
   ]
 };
 

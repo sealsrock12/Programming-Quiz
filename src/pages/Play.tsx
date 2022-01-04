@@ -14,6 +14,7 @@ import "@/styles/prism.css";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 import ReportErrorModal from "@/components/ReportErrorModal";
+import { defaultSettings } from "@/lib/site";
 
 export default function Play() {
   function submit() {
@@ -55,6 +56,11 @@ export default function Play() {
     setSelected(parseInt(e.currentTarget.value));
   }
 
+  if (!localStorage.getItem("settings")) {
+    console.log("x");
+    localStorage.setItem("settings", JSON.stringify(defaultSettings));
+  }
+
   const [problemInfo, setProblemInfo] = useState(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       if (localStorage.getItem("onSolution") === "true") {
@@ -77,6 +83,7 @@ export default function Play() {
     }
   });
   useEffect(() => {
+    console.log("Set in localStorage");
     localStorage.setItem("lang", problemInfo.lang);
     localStorage.setItem("id", problemInfo.id.toString());
   }, [problemInfo]);

@@ -3,11 +3,14 @@ import { Helmet } from "react-helmet";
 import Menu from "@/components/Menu";
 import Toggle from "@/components/Toggle";
 import { isJSON, defaultSettings } from "@/lib/site";
+import { langToNiceName } from "@/lib/problems";
+import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Settings.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 
 function reset() {
   // handler for resetting settings to default
@@ -18,21 +21,49 @@ function reset() {
 }
 
 export default function Settings() {
-  const storedSettings = localStorage.getItem("settings");
-  let settings;
+  function langChange(e) {
+    const settings = JSON.parse(localStorage.getItem("settings")!);
 
-  if (!storedSettings) {
-    // not stored in localStorage
-    localStorage.setItem("settings", JSON.stringify(defaultSettings));
-    settings = defaultSettings;
-  } else {
-    // verify the value in localStorage is JSON
-    if (isJSON(storedSettings)) {
-      settings = JSON.parse(storedSettings!);
+    if (e.target.value === "all") {
+      setLang("-");
+
+      settings.all = true;
+      localStorage.setItem("settings", JSON.stringify(settings));
     } else {
-      settings = defaultSettings;
+      setLang(e.target.value);
+
+      settings.all = false;
       localStorage.setItem("settings", JSON.stringify(settings));
     }
+  }
+
+  const [lang, setLang] = useState(localStorage.getItem("lang")!);
+  const [settings, setSettings] = useState(
+    localStorage.getItem("settings")
+      ? JSON.parse(localStorage.getItem("settings")!)
+      : () => {
+          localStorage.setItem("settings", JSON.stringify(defaultSettings));
+          return defaultSettings;
+        }
+  );
+
+  useEffect(() => {
+    localStorage.setItem("lang", lang);
+
+    if (lang === "-") {
+      localStorage.setItem("id", "-");
+    }
+  }, [lang]);
+
+  const storedLang = localStorage.getItem("lang");
+
+  if (JSON.parse(localStorage.getItem("settings")!)["all"] !== true) {
+    const generated = generator();
+    localStorage.setItem("lang", "f");
+    localStorage.setItem(
+      "id",
+      (localStorage.getItem("lang")! === "-" ? "-" : generated.id).toString()
+    );
   }
 
   return (
@@ -43,10 +74,32 @@ export default function Settings() {
 
       <Menu settingsSelected />
       <main className={styles.main}>
+        {/* light mode */}
         <section className={styles.settingsWrapper}>
           <div className={styles.settingRow}>
             <span>Light Mode</span>
             <Toggle checked={settings.lightMode === true} name="lightMode" />
+          </div>
+
+          {/* toggle between lang */}
+          <div className={styles.settingRow}>
+            <span>Programming Language</span>
+
+            <select
+              id="choose-lang"
+              onChange={e => {
+                langChange(e);
+              }}
+              value={lang}
+            >
+              <option value="all">All</option>
+
+              {Object.keys(langToNiceName).map(langShort => {
+                return (
+                  <option value={langShort}>{langToNiceName[langShort]}</option>
+                );
+              })}
+            </select>
           </div>
         </section>
 

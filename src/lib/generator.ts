@@ -1,11 +1,19 @@
-import problems from "@/lib/problems";
+import problems, { langToNiceName } from "@/lib/problems";
 
 export function generator(previous?: PopulatedProblem) {
+  const storedLang = localStorage.getItem("lang");
+
   let flatProblems: PopulatedProblem[] = [];
-  Object.keys(problems).forEach(lang => {
-    problems[lang].forEach((problem, id) => {
+  let langKeys =
+    localStorage.getItem("lang") && localStorage.getItem("lang") !== "null"
+      ? [localStorage.getItem("lang")]
+      : Object.keys(langToNiceName);
+
+  langKeys.forEach(lang => {
+    problems[lang!].forEach((problem, id) => {
       flatProblems.push({
         id,
+        // @ts-ignore
         lang,
         ...problem
       });

@@ -9,5 +9,6 @@ export function isJSON(str) {
 }
 
 export const defaultSettings = {
-  lightMode: false
+  lightMode: false,
+  all: true
 };
