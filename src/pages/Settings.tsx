@@ -15,10 +15,14 @@ import { v4 as uuidv4 } from "uuid";
 
 function reset() {
   // handler for resetting settings to default
-  if (window.confirm("Are you sure you want to reset all settings?")) {
-    localStorage.removeItem("settings");
-    window.location.reload();
-  }
+  if (!window.confirm("Are you sure you want to reset all settings?")) return;
+
+  Object.keys(localStorage).forEach(item => {
+    if (item.startsWith("settings-")) {
+      localStorage.removeItem(item);
+    }
+  });
+  window.location.reload();
 }
 
 export default function Settings() {
