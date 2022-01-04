@@ -10,10 +10,10 @@ const problems: ProblemList = {
         "Prints text on the site",
         "Prints text to the console",
         "Error message in the console",
-        "None of the above",
+        "None of the above"
       ],
       answer: 1,
-      solution: "`console.log()` prints text on to the console.",
+      solution: "`console.log()` prints text on to the console."
     },
     {
       problem:
@@ -21,7 +21,7 @@ const problems: ProblemList = {
       options: ["var/let", "const/let", "const/var", "None of the above"],
       answer: 0,
       solution:
-        "`const` will make it a constant (un-changeable). So it will be the other two.",
+        "`const` will make it a constant (un-changeable). So it will be the other two."
     },
     {
       problem: "What are the states of a JavaScript promise?",
@@ -29,11 +29,11 @@ const problems: ProblemList = {
         "Pending, Finished, Rejected",
         "Pending, Fulfilled, Denied",
         "Pending, Fulfilled, Rejected",
-        "Pending, Complete, Rejected",
+        "Pending, Complete, Rejected"
       ],
       answer: 2,
-      solution: "They are: Pending, Fulfilled, Rejected",
-    },
+      solution: "They are: Pending, Fulfilled, Rejected"
+    }
   ],
   py: [
     {
@@ -42,11 +42,11 @@ const problems: ProblemList = {
         "Prints text to the terminal",
         "Prints text to the window",
         "Error message in the terminal",
-        "None of the above",
+        "None of the above"
       ],
       answer: 0,
       solution:
-        "`print()` prints text in to the terminal. There is no window involved.",
+        "`print()` prints text in to the terminal. There is no window involved."
     },
     {
       problem: "In Python, a function can take",
@@ -54,12 +54,12 @@ const problems: ProblemList = {
         "0 parameters",
         "1 parameter",
         "2 parameters",
-        "As many parameters as needed",
+        "As many parameters as needed"
       ],
       answer: 3,
       solution:
         "A function may need more than two parameters based on \
-    its aim, so using more than 2 parameters is allowed.",
+    its aim, so using more than 2 parameters is allowed."
     },
     {
       problem: `Is this a valid python code?
@@ -77,7 +77,7 @@ The thing is, you can have a different number of spaces as indents for each bloc
 as long as each block of code has a consistent number of spaces for indents. \
 If we look at the code, there are two blocks of code, the first having a one-space indent, \
 and the second having an eight-space indent. Since both indents are consistent throughout their block, \
-this code is perfectly valid.",
+this code is perfectly valid."
     },
     {
       problem: `
@@ -104,8 +104,8 @@ if 10 > x >= -1{
         "Solution: As weird as it seems, snippets one and two are both valid. \
 Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
 as in python, you can use semicolons as separators, although there are not mandatory. \
-Code three is incorrect as curly brackets were never a thing in python.",
-    },
+Code three is incorrect as curly brackets were never a thing in python."
+    }
   ],
   sh: [
     {
@@ -118,7 +118,7 @@ Code three is incorrect as curly brackets were never a thing in python.",
       solution:
         'Solution: The first case is valid. The second is invalid because of the spaces. \
 This instead gets interpreted as running foo with the arguments ["=", "bar"] which is not what we desire. \
-The third case is also valid as quotes are often optional in Bash.',
+The third case is also valid as quotes are often optional in Bash.'
     },
     {
       problem: "In Bash, what is the `.bashrc` file?",
@@ -126,12 +126,12 @@ The third case is also valid as quotes are often optional in Bash.',
         "A script that makes Bash work (located in `/bin`)",
         "A script that makes Bash work (located in `/usr/bin`)",
         "A shell script that runs every time you launch the terminal",
-        "None of the above",
+        "None of the above"
       ],
       answer: 2,
       solution:
-        "The answer is (C). Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance.",
-    },
+        "The answer is (C). Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance."
+    }
   ],
   java: [
     {
@@ -141,13 +141,13 @@ In Java, non-primitive data types are ________, and one example is a(n) ________
         '"predefined", "integer"',
         '"not predefined", "string"',
         '"predefined", "array"',
-        "None of the above",
+        "None of the above"
       ],
       answer: 1,
       solution:
         "Primitive types, like int or boolean, are immediately defined \
 (in this case, 0 and false respectively), even if you haven't assigned a value to it. \
-Likewise, non-primitive types, like string or array, are not immediately defined.",
+Likewise, non-primitive types, like string or array, are not immediately defined."
     },
     {
       problem: `What is the output of this code?
@@ -161,8 +161,8 @@ int main(void) {
       options: ["'d'", "No output", "Undefined behavior", "None of the above"],
       answer: 2,
       solution:
-        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd').",
-    },
+        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd')."
+    }
   ],
   ccpp: [
     {
@@ -171,13 +171,13 @@ int main(void) {
         "Vectors are resizable",
         "Vectors have direction",
         "They're the same",
-        "None of the above",
+        "None of the above"
       ],
       answer: 0,
       solution:
-        "Vectors can be resized, as opposed to arrays, where you must create a new array, allocate it in memory,  copy the contents over, and delete the old array.",
-    },
-  ],
+        "Vectors can be resized, as opposed to arrays, where you must create a new array, allocate it in memory,  copy the contents over, and delete the old array."
+    }
+  ]
 };
 
 export const langToNiceName: { [key in LangType]: string } = {
@@ -185,7 +185,7 @@ export const langToNiceName: { [key in LangType]: string } = {
   py: "Python",
   sh: "Shell",
   ccpp: "C/C++",
-  java: "Java",
+  java: "Java"
 };
 
 // Can't find a better way to do this
@@ -196,7 +196,7 @@ export const indexToAlpha: { [key: number]: string } = {
   3: "D",
   4: "E",
   5: "F",
-  6: "G",
+  6: "G"
 };
 
 export default problems;
