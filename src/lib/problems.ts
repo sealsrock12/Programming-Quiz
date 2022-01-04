@@ -178,7 +178,8 @@ int main(void) {
   char* str = "Hello World";
   printf("%c", str[11]);
   return 0;
-}~~~`,
+}
+~~~`,
       options: ["'d'", "No output", "Undefined behavior", "None of the above"],
       answer: 2,
       solution:
