@@ -54,6 +54,17 @@ test();
     options: ["undefined, 2", "1, 2", "1, undefined", "undefined, undefined"],
     answer: 0,
     solution: "Since `a` was defined *after* it was called, it returned `undefined`. However, functions in JS can be defined anywhere, so `foo()` returned `2`."
+  },
+  {
+    problem: "What is the difference between `undefined` and `null`?",
+    options: [
+      "`undefined` completely the same as `null`",
+      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the code",
+      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the programer",
+      "None of the above"
+    ],
+    answer: 2,
+    solution: "`undefined` is when no value is assigned to something. The value will never be `null` unless the progammer explicity choose to make it that value. "
   }
   ],
   py: [
