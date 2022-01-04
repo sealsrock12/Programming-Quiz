@@ -33,7 +33,28 @@ const problems: ProblemList = {
       ],
       answer: 2,
       solution: "They are: Pending, Fulfilled, Rejected"
-    }
+    },
+    {
+      problem: `What is the result of this code?
+      
+~~~javascript
+function test() {
+  console.log(a);
+  console.log(foo());
+  
+  var a = 1;
+  function foo() {
+    return 2;
+  }
+}
+~~~
+
+test();
+`,
+    options: ["undefined, 2", "1, 2", "2, 1", "undefined, undefined"],
+    answer: 0,
+    solution: "Since `a` was defined *after* it was called, it returned `undefined`. However, functions in JS can be defined anywhere."
+  }
   ],
   py: [
     {
