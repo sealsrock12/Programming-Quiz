@@ -46,7 +46,7 @@ export default function Settings() {
 
           {/* toggle between lang */}
           <div className={styles.settingRow}>
-            <span>Programming Language</span>
+            <span className={styles.changeLangTitle}>Programming Language</span>
 
             <select
               onChange={e => {

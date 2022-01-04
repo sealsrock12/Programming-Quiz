@@ -34,7 +34,7 @@ export default function Credits() {
           <li>
             <a href="https://artofproblemsolving.com/community/user/OlympusHero">
               OlympusHero
-            </a>
+            </a>{" "}
             - Problem writer
           </li>
           <li>
@@ -52,6 +52,18 @@ export default function Credits() {
           <li>
             <a href="https://artofproblemsolving.com/community/user/imgroot2">
               imgroot2
+            </a>{" "}
+            - Problem writer
+          </li>
+          <li>
+            <a href="https://artofproblemsolving.com/community/user/supercharlie210">
+              supercharlie210
+            </a>{" "}
+            - Problem writer
+          </li>
+          <li>
+            <a href="https://artofproblemsolving.com/community/user/programmeruser">
+              programmeruser
             </a>{" "}
             - Problem writer
           </li>
