@@ -1,3 +1,7 @@
+export const langList = ["js", "py", "sh", "ccpp", "java"] as const;
+export const langListString = langList.map(e => e.toString());
+export type LangType = typeof langList[number];
+
 const problems: ProblemList = {
   js: [
     {
@@ -156,7 +160,7 @@ Likewise, non-primitive types, like string or array, are not immediately defined
   ]
 };
 
-export const langToNiceName: { [key: string]: string } = {
+export const langToNiceName: { [key in LangType]: string } = {
   js: "JavaScript",
   py: "Python",
   sh: "Shell",

@@ -1,13 +1,17 @@
-import problems, { langToNiceName } from "@/lib/problems";
+import { AppContext } from "@/components/AppProvider";
+import problems, { langList, langToNiceName } from "@/lib/problems";
+import { useContext } from "react";
 
-export function generator(previous?: PopulatedProblem) {
-  const storedLang = localStorage.getItem("lang");
-
+export function generator(
+  problemType: LangSettingType,
+  previous?: PopulatedProblem
+) {
   let flatProblems: PopulatedProblem[] = [];
-  let langKeys =
-    localStorage.getItem("lang") && localStorage.getItem("lang") !== "null"
-      ? [localStorage.getItem("lang")]
-      : Object.keys(langToNiceName);
+  let langKeys: LangType[] = langList.map(e => e);
+
+  if (problemType != "all") {
+    langKeys = [problemType];
+  }
 
   langKeys.forEach(lang => {
     problems[lang!].forEach((problem, id) => {

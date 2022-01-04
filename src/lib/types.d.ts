@@ -1,15 +1,22 @@
-interface Problem {
-  problem: string;
-  options: string[];
-  answer: number;
-  solution: string;
-}
+import { LangType as _LangType } from "./problems";
 
-interface PopulatedProblem extends Problem {
-  id: number;
-  lang: string;
-}
+declare global {
+  type LangType = _LangType;
+  type LangSettingType = LangType | "all";
 
-interface ProblemList {
-  [lang: string]: Problem[];
+  interface Problem {
+    problem: string;
+    options: string[];
+    answer: number;
+    solution: string;
+  }
+
+  interface PopulatedProblem extends Problem {
+    id: number;
+    lang: string;
+  }
+
+  type ProblemList = {
+    [lang in LangType]: Problem[];
+  };
 }

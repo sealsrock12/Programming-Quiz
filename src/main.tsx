@@ -1,8 +1,5 @@
 import { lazy, Suspense } from "react";
 import ReactDOM from "react-dom";
-// import * as serviceWorker from "/sw.js";
-
-import { isJSON, defaultSettings } from "@/lib/site";
 
 // styles for the entire web page
 import "@/styles/index.scss";
@@ -16,33 +13,25 @@ const NotFound = lazy(() => import("@/pages/404"));
 
 import Footer from "@/components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AppProvider from "./components/AppProvider";
 
 const renderLoader = () => <p></p>;
 
-// Apply settings
-const currentSettings =
-  isJSON(localStorage.getItem("settings")!) && localStorage.getItem("settings")
-    ? JSON.parse(localStorage.getItem("settings")!)
-    : defaultSettings;
-
-if (currentSettings.lightMode) {
-  document.body.classList.add("light");
-}
-
 ReactDOM.render(
-  <Suspense fallback={renderLoader()}>
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/play" element={<Play />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/stats" element={<Stats />} />
-        <Route path="/credits" element={<Credits />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-
-      <Footer />
-    </Router>
-  </Suspense>,
+  <AppProvider>
+    <Suspense fallback={renderLoader()}>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/play" element={<Play />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/stats" element={<Stats />} />
+          <Route path="/credits" element={<Credits />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </Suspense>
+  </AppProvider>,
   document.getElementById("app")
 );

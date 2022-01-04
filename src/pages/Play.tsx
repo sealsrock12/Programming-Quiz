@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 
 import Menu from "@/components/Menu";
@@ -14,15 +14,17 @@ import "@/styles/prism.css";
 import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 import ReportErrorModal from "@/components/ReportErrorModal";
-import { defaultSettings } from "@/lib/site";
+import { AppContext } from "@/components/AppProvider";
 
 export default function Play() {
+  const { problemType } = useContext(AppContext);
+
   function submit() {
     if (onSolution) {
       setOnSolution(false);
       setSelected(-1);
       setTypeText("Problem");
-      setProblemInfo(generator(problemInfo));
+      setProblemInfo(generator(problemType, problemInfo));
       localStorage.removeItem("onSolution");
       return;
     }
@@ -56,34 +58,33 @@ export default function Play() {
     setSelected(parseInt(e.currentTarget.value));
   }
 
-  if (!localStorage.getItem("settings")) {
-    console.log("x");
-    localStorage.setItem("settings", JSON.stringify(defaultSettings));
-  }
-
   const [problemInfo, setProblemInfo] = useState(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       if (localStorage.getItem("onSolution") === "true") {
         localStorage.removeItem("onSolution");
-        return generator();
+        return generator(problemType);
       }
 
       console.log("Updating based on storage");
       const lang = localStorage.getItem("lang")!;
       const id = parseInt(localStorage.getItem("id")!);
 
+      if (lang !== problemType) {
+        console.log("Lang changed, generating random problem");
+        return generator(problemType);
+      }
+
       if (!problems[lang] || !problems[lang][id]) {
         console.log("Invalid stored problem, generating random");
-        return generator();
+        return generator(problemType);
       }
 
       return { lang, id, ...problems[lang][id] };
     } else {
-      return generator();
+      return generator(problemType);
     }
   });
   useEffect(() => {
-    console.log("Set in localStorage");
     localStorage.setItem("lang", problemInfo.lang);
     localStorage.setItem("id", problemInfo.id.toString());
   }, [problemInfo]);
@@ -97,9 +98,6 @@ export default function Play() {
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
   const [errorOpen, setErrorOpen] = useState(false);
-
-  localStorage.setItem("lang", problemInfo.lang!);
-  localStorage.setItem("id", problemInfo.id.toString());
 
   return (
     <>

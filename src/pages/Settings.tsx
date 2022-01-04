@@ -2,15 +2,16 @@ import { Helmet } from "react-helmet";
 
 import Menu from "@/components/Menu";
 import Toggle from "@/components/Toggle";
-import { isJSON, defaultSettings } from "@/lib/site";
-import { langToNiceName } from "@/lib/problems";
+import { langList, langToNiceName } from "@/lib/problems";
 import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Settings.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "@/components/AppProvider";
+import { v4 as uuidv4 } from "uuid";
 
 function reset() {
   // handler for resetting settings to default
@@ -21,50 +22,8 @@ function reset() {
 }
 
 export default function Settings() {
-  function langChange(e) {
-    const settings = JSON.parse(localStorage.getItem("settings")!);
-
-    if (e.target.value === "all") {
-      setLang("-");
-
-      settings.all = true;
-      localStorage.setItem("settings", JSON.stringify(settings));
-    } else {
-      setLang(e.target.value);
-
-      settings.all = false;
-      localStorage.setItem("settings", JSON.stringify(settings));
-    }
-  }
-
-  const [lang, setLang] = useState(localStorage.getItem("lang")!);
-  const [settings, setSettings] = useState(
-    localStorage.getItem("settings")
-      ? JSON.parse(localStorage.getItem("settings")!)
-      : () => {
-          localStorage.setItem("settings", JSON.stringify(defaultSettings));
-          return defaultSettings;
-        }
-  );
-
-  useEffect(() => {
-    localStorage.setItem("lang", lang);
-
-    if (lang === "-") {
-      localStorage.setItem("id", "-");
-    }
-  }, [lang]);
-
-  const storedLang = localStorage.getItem("lang");
-
-  if (JSON.parse(localStorage.getItem("settings")!)["all"] !== true) {
-    const generated = generator();
-    localStorage.setItem("lang", "f");
-    localStorage.setItem(
-      "id",
-      (localStorage.getItem("lang")! === "-" ? "-" : generated.id).toString()
-    );
-  }
+  const { lightMode, setLightMode, problemType, setProblemType } =
+    useContext(AppContext);
 
   return (
     <>
@@ -74,11 +33,15 @@ export default function Settings() {
 
       <Menu settingsSelected />
       <main className={styles.main}>
-        {/* light mode */}
         <section className={styles.settingsWrapper}>
+          {/* light mode */}
           <div className={styles.settingRow}>
             <span>Light Mode</span>
-            <Toggle checked={settings.lightMode === true} name="lightMode" />
+            <Toggle
+              setter={setLightMode}
+              checked={lightMode === true}
+              name="lightMode"
+            />
           </div>
 
           {/* toggle between lang */}
@@ -86,17 +49,18 @@ export default function Settings() {
             <span>Programming Language</span>
 
             <select
-              id="choose-lang"
               onChange={e => {
-                langChange(e);
+                setProblemType(e.target.value as LangSettingType);
               }}
-              value={lang}
+              value={problemType}
             >
               <option value="all">All</option>
 
-              {Object.keys(langToNiceName).map(langShort => {
+              {langList.map(langShort => {
                 return (
-                  <option value={langShort}>{langToNiceName[langShort]}</option>
+                  <option value={langShort} key={uuidv4()}>
+                    {langToNiceName[langShort]}
+                  </option>
                 );
               })}
             </select>
