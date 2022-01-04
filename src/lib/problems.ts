@@ -137,7 +137,7 @@ In Java, non-primitive data types are ________, and one example is a(n) ________
         '"predefined", "integer"',
         '"not predefined", "string"',
         '"predefined", "array"',
-        "None of the above.",
+        "None of the above",
       ],
       answer: 1,
       solution:
@@ -148,10 +148,16 @@ Likewise, non-primitive types, like string or array, are not immediately defined
   ],
   ccpp: [
     {
-      problem: "Dummy ccpp prob",
-      options: ["1", "2", "3", "4"],
-      answer: 1,
-      solution: "1!",
+      problem: "In C++, the difference between a vector and an array is...",
+      options: [
+        "Vectors are resizable",
+        "Vectors have direction",
+        "They're the same",
+        "None of the above",
+      ],
+      answer: 0,
+      solution:
+        "Vectors can be resized, as opposed to arrays, where you must create a new array, allocate it in memory,  copy the contents over, and delete the old array.",
     },
   ],
 };
