@@ -145,6 +145,20 @@ In Java, non-primitive data types are ________, and one example is a(n) ________
 (in this case, 0 and false respectively), even if you haven't assigned a value to it. \
 Likewise, non-primitive types, like string or array, are not immediately defined.",
     },
+    {
+      problem: `What is the output of this code?
+~~~java
+#include <stdio.h>
+int main(void) {
+  char* str = "Hello World";
+  printf("%c", str[11]);
+  return 0;
+}~~~`,
+      options: ["'d'", "No output", "Undefined behavior", "None of the above"],
+      answer: 2,
+      solution:
+        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd').",
+    },
   ],
   ccpp: [
     {

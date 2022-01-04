@@ -61,6 +61,12 @@ export default function Credits() {
             </a>{" "}
             - Problem writer
           </li>
+          <li>
+            <a href="https://artofproblemsolving.com/community/user/programmeruser">
+              programmeruser
+            </a>{" "}
+            - Problem writer
+          </li>
           <li>Other problem writers who asked to remain anonymous</li>
         </ul>
       </main>
