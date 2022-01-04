@@ -47,11 +47,11 @@ function test() {
     return 2;
   }
 }
-~~~
 
 test();
+~~~
 `,
-    options: ["undefined, 2", "1, 2", "2, 1", "undefined, undefined"],
+    options: ["undefined, 2", "1, 2", "null, null", "undefined, undefined"],
     answer: 0,
     solution: "Since `a` was defined *after* it was called, it returned `undefined`. However, functions in JS can be defined anywhere."
   }
