@@ -51,21 +51,23 @@ function test() {
 test();
 ~~~
 `,
-    options: ["undefined, 2", "1, 2", "1, undefined", "undefined, undefined"],
-    answer: 0,
-    solution: "Since `a` was defined *after* it was called, it returned `undefined`. However, functions in JS can be defined anywhere, so `foo()` returned `2`."
-  },
-  {
-    problem: "What is the difference between `undefined` and `null`?",
-    options: [
-      "`undefined` completely the same as `null`",
-      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the code",
-      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the programer",
-      "None of the above"
-    ],
-    answer: 2,
-    solution: "`undefined` is when no value is assigned to something. The value will never be `null` unless the progammer explicity choose to make it that value. "
-  }
+      options: ["undefined, 2", "1, 2", "1, undefined", "undefined, undefined"],
+      answer: 0,
+      solution:
+        "Since `a` was defined *after* it was called, it returned `undefined`. However, functions in JS can be defined anywhere, so `foo()` returned `2`."
+    },
+    {
+      problem: "What is the difference between `undefined` and `null`?",
+      options: [
+        "`undefined` completely the same as `null`",
+        "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the code",
+        "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the programer",
+        "None of the above"
+      ],
+      answer: 2,
+      solution:
+        "`undefined` is when no value is assigned to something. The value will never be `null` unless the progammer explicity choose to make it that value. "
+    }
   ],
   py: [
     {
@@ -180,21 +182,6 @@ In Java, non-primitive data types are ________, and one example is a(n) ________
         "Primitive types, like int or boolean, are immediately defined \
 (in this case, 0 and false respectively), even if you haven't assigned a value to it. \
 Likewise, non-primitive types, like string or array, are not immediately defined."
-    },
-    {
-      problem: `What is the output of this code?
-~~~java
-#include <stdio.h>
-int main(void) {
-  char* str = "Hello World";
-  printf("%c", str[11]);
-  return 0;
-}
-~~~`,
-      options: ["'d'", "No output", "Undefined behavior", "None of the above"],
-      answer: 2,
-      solution:
-        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd')."
     }
   ],
   ccpp: [
@@ -209,6 +196,21 @@ int main(void) {
       answer: 0,
       solution:
         "Vectors can be resized, as opposed to arrays, where you must create a new array, allocate it in memory,  copy the contents over, and delete the old array."
+    },
+    {
+      problem: `What is the output of this code?
+~~~cpp
+#include <stdio.h>
+int main(void) {
+  char* str = "Hello World";
+  printf("%c", str[11]);
+  return 0;
+}
+~~~`,
+      options: ["'d'", "No output", "Undefined behavior", "None of the above"],
+      answer: 2,
+      solution:
+        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd')."
     }
   ]
 };
