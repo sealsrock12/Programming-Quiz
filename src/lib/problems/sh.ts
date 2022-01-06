@@ -23,6 +23,14 @@ The third case is also valid as quotes are often optional in Bash.'
     solution:
       "The answer is (C). Located in `~/.bashrc`, this file is often used for variables, functions, aliases, etc. that we want to use in every shell instance."
   }
+  // {
+  //   problem: "How do get arguments from a shell script?",
+  //   options: [
+  //     "Using `$1`, `$2`, `$3` ... `$9`, `$10`",
+  //     "Using `$1`, `$2`, `$3` ... `${9}`, `${10}`",
+  //     ""
+  //   ]
+  // }
 ];
 
 export default shProblems;
