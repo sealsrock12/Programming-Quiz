@@ -55,13 +55,13 @@ const jsProblems: Problem[] = [
     problem: "What is the difference between `undefined` and `null`?",
     options: [
       "`undefined` completely the same as `null`",
-      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the code",
-      "`undefined` is when no value was assigned. `null` is when there is no value, but was puposely assigned by the programer",
+      "`undefined` is when no value was assigned. `null` is when there is no value, but was purposely assigned by the code",
+      "`undefined` is when no value was assigned. `null` is when there is no value, but was purposely assigned by the programer",
       "None of the above"
     ],
     answer: 2,
     solution:
-      "`undefined` is when no value is assigned to something. The value will never be `null` unless the progammer explicity choose to make it that value. "
+      "`undefined` is when no value is assigned to something. The value will never be `null` unless the programmer explicity choose to make it that value. "
   },
   {
     problem: `What is the result of this code?
