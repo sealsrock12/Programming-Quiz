@@ -115,7 +115,7 @@ export default function Play() {
               : typeText}
           </h1>
 
-          <section>
+          <section className={styles.problemSection}>
             <ReactMarkdown>
               {onSolution ? problemInfo.solution : problemInfo.problem}
             </ReactMarkdown>
