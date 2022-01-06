@@ -3,11 +3,11 @@ export const langListString = langList.map(e => e.toString());
 export type LangType = typeof langList[number];
 
 // import problems by lang
-import jsProblems from "./problems/js";
-import pyProblems from "./problems/py";
-import shProblems from "./problems/sh";
-import javaProblems from "./problems/java";
-import ccppProblems from "./problems/ccpp";
+import jsProblems from "./js";
+import pyProblems from "./py";
+import shProblems from "./sh";
+import javaProblems from "./java";
+import ccppProblems from "./ccpp";
 
 const problems: ProblemList = {
   js: jsProblems,

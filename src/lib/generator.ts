@@ -1,10 +1,4 @@
-import { AppContext } from "@/components/AppProvider";
-import problems, {
-  langList,
-  langToNiceName,
-  problemProperties
-} from "@/lib/problems";
-import { useContext } from "react";
+import problems, { langList, problemProperties } from "@/lib/problems";
 
 export function generator(
   problemType: LangSettingType,

@@ -3,13 +3,12 @@ import { Helmet } from "react-helmet";
 import Menu from "@/components/Menu";
 import Toggle from "@/components/Toggle";
 import { langList, langToNiceName } from "@/lib/problems";
-import { generator } from "@/lib/generator";
 
 import styles from "@/styles/Settings.module.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { AppContext } from "@/components/AppProvider";
 import { v4 as uuidv4 } from "uuid";
 
