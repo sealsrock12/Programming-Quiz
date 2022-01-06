@@ -68,6 +68,12 @@ export default function Credits() {
             - Problem writer
           </li>
           <li>
+            <a href="https://artofproblemsolving.com/community/user/gnidoc">
+              gnidoc
+            </a>{" "}
+            - Problem writer
+          </li>
+          <li>
             Some problems were adapted from output of{" "}
             <a href="https://openai.com/">OpenAI</a>.
           </li>

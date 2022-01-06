@@ -68,6 +68,19 @@ if 10 > x >= -1{
 Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
 as in python, you can use semicolons as separators, although there are not mandatory. \
 Code three is incorrect as curly brackets were never a thing in python."
+  },
+  {
+    problem: "What does the asterisk unary operator (*) do in Python?",
+    options: [
+      "It takes the product of an array",
+      "It takes the sum of an array",
+      "It de-references a value",
+      "It unpacks a value"
+    ],
+    answer: 3,
+    solution:
+      "The operator will unpack a list or tuple. For more details, \
+see https://www.w3schools.com/python/python_tuples_unpack.asp"
   }
 ];
 
