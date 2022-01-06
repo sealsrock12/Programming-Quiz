@@ -67,6 +67,10 @@ export default function Credits() {
             </a>{" "}
             - Problem writer
           </li>
+          <li>
+            Some problems were adapted from output of{" "}
+            <a href="https://openai.com/">OpenAI</a>.
+          </li>
           <li>Other problem writers who asked to remain anonymous</li>
         </ul>
       </main>
