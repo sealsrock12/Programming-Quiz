@@ -1,4 +1,4 @@
-const jsProblems = [
+const jsProblems: Problem[] = [
   {
     problem: "What does `console.log()` do?",
     options: [

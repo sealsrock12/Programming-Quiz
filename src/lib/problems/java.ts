@@ -1,4 +1,4 @@
-const javaProblems = [
+const javaProblems: Problem[] = [
   {
     problem: `Fill in the blank: 
 In Java, non-primitive data types are ________, and one example is a(n) ________.`,

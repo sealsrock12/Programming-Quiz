@@ -1,4 +1,4 @@
-const shProblems = [
+const shProblems: Problem[] = [
   {
     problem: `In Bash, which options declare a variable?
   1. \`foo=bar\`

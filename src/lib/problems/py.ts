@@ -1,4 +1,4 @@
-const pyProblems = [
+const pyProblems: Problem[] = [
   {
     problem: "What does `print()` do?",
     options: [

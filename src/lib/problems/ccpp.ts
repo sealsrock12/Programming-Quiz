@@ -1,4 +1,4 @@
-const ccppProblems = [
+const ccppProblems: Problem[] = [
   {
     problem: "In C++, the difference between a vector and an array is...",
     options: [
