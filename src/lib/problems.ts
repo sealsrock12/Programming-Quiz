@@ -199,7 +199,7 @@ Likewise, non-primitive types, like string or array, are not immediately defined
     },
     {
       problem: `What is the output of this code?
-~~~cpp
+~~~clike
 #include <stdio.h>
 int main(void) {
   char* str = "Hello World";
@@ -207,10 +207,15 @@ int main(void) {
   return 0;
 }
 ~~~`,
-      options: ["'d'", "No output", "Undefined behavior", "None of the above"],
+      options: [
+        "'d'",
+        "No output",
+        "Crash/Undefined behavior",
+        "None of the above"
+      ],
       answer: 2,
       solution:
-        "The answer is (C), because accessing memory out of bounds is undefined. Here, we're accessing a character past the last index (which is 'd')."
+        "The answer is (C), because accessing memory out of bounds will cause the program to crash. Here, we're accessing a character past the last index (which is 'd')."
     }
   ]
 };
