@@ -30,6 +30,10 @@ main {
   section {
     width: min(100%, 80ch);
     margin: auto;
+
+    & > p {
+      margin: 1rem 0 1rem 0;
+    }
   }
 
   @media screen and (max-width: 640px) {
@@ -116,10 +120,6 @@ main {
 
 .optionLabel {
   max-width: 64vw;
-}
-
-.problemSection > p {
-  margin: 1rem 0 1rem 0;
 }
 
 @media screen and (max-width: 600px) {
