@@ -36,4 +36,12 @@ export const indexToAlpha: { [key: number]: string } = {
   6: "G"
 };
 
+export const problemProperties = `Problem Properties:
+js: ${jsProblems.length}
+py: ${pyProblems.length}
+sh: ${shProblems.length}
+java: ${javaProblems.length}
+ccpp: ${ccppProblems.length}
+`;
+
 export default problems;

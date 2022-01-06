@@ -1,5 +1,9 @@
 import { AppContext } from "@/components/AppProvider";
-import problems, { langList, langToNiceName } from "@/lib/problems";
+import problems, {
+  langList,
+  langToNiceName,
+  problemProperties
+} from "@/lib/problems";
 import { useContext } from "react";
 
 export function generator(
@@ -30,6 +34,9 @@ export function generator(
   }
 
   const index = Math.floor(Math.random() * flatProblems.length);
+
+  // Problem Properties
+  console.log(problemProperties);
 
   return flatProblems[index];
 }
