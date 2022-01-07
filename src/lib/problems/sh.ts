@@ -48,7 +48,9 @@ const shProblems: Problem[] = [
     answer: 3,
     solution: `When you login (type username and password) via console, either sitting at the machine, or remotely via ssh: \`.bash_profile\` is executed to configure your shell before the initial command prompt.
 
-But, if you've already logged into your machine and open a new terminal window (xterm) then \`.bashrc\` is executed before the window command prompt. \`.bashrc\` is also run when you start a new bash instance by typing \`/bin/bash\` in a terminal.`
+But, if you've already logged into your machine and open a new terminal window (xterm) then \`.bashrc\` is executed before the window command prompt. \`.bashrc\` is also run when you start a new bash instance by typing \`/bin/bash\` in a terminal.
+
+Source: [https://apple.stackexchange.com/a/51038/441471](https://apple.stackexchange.com/a/51038/441471)`
   }
 ];
 
