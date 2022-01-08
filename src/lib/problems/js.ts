@@ -31,20 +31,19 @@ const jsProblems: Problem[] = [
   },
   {
     problem: `What is the result of this code?
+~~~javascript
+function test() {
+console.log(a);
+console.log(foo());
 
-  ~~~javascript
-  function test() {
-  console.log(a);
-  console.log(foo());
+var a = 1;
+function foo() {
+  return 2;
+}
+}
 
-  var a = 1;
-  function foo() {
-    return 2;
-  }
-  }
-
-  test();
-  ~~~
+test();
+~~~
   `,
     options: ["undefined, 2", "1, 2", "1, undefined", "undefined, undefined"],
     answer: 0,

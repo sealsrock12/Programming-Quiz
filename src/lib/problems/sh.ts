@@ -8,8 +8,8 @@ const shProblems: Problem[] = [
     answer: 2,
     solution:
       'Solution: The first case is valid. The second is invalid because of the spaces. \
-  This instead gets interpreted as running foo with the arguments ["=", "bar"] which is not what we desire. \
-  The third case is also valid as quotes are often optional in Bash.'
+This instead gets interpreted as running foo with the arguments ["=", "bar"] which is not what we desire. \
+The third case is also valid as quotes are often optional in Bash.'
   },
   {
     problem: "In Bash, what is the `.bashrc` file?",
@@ -34,8 +34,8 @@ const shProblems: Problem[] = [
     answer: 1,
     solution:
       "The answer is (B). We use the dollar signs to reference the `n`th variable. \
-        It must be surrounded in braces if it is over 10. In addition, $0 returns the \
-        name of the file being called, so it is not an argument."
+It must be surrounded in braces if it is over 10. In addition, $0 returns the \
+name of the file being called, so it is not an argument."
   },
   {
     problem: "What is the difference between `.bashrc` and `.bash_profile`?",
