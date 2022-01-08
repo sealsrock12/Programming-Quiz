@@ -75,7 +75,19 @@ export default function Credits() {
           </li>
           <li>
             Some problems were adapted from output of{" "}
-            <a href="https://openai.com/">OpenAI</a>.
+            <a href="https://openai.com/" rel="noreferrer" target="_blank">
+              OpenAI
+            </a>
+          </li>
+          <li>
+            Many of the JavaScript problems were from{" "}
+            <a
+              href="https://github.com/lydiahallie/javascript-questions/blob/master/README.md"
+              rel="noreferrer"
+              target="_blank"
+            >
+              Lydia Hallie's JavaScript Questions Repository
+            </a>
           </li>
           <li>Other problem writers who asked to remain anonymous</li>
         </ul>
