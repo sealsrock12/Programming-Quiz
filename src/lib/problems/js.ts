@@ -120,6 +120,7 @@ const mouse = {
       '`mouse[bird["size"]]` is not valid',
       "All of them are valid"
     ],
+    answer: 0,
     solution: `In JavaScript, all object keys are strings (unless it's a Symbol). Even though we might not *type* them as strings, they are always converted into strings under the hood.
 
 JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket \`[\` and keeps going until it finds the closing bracket \`]\`. Only then, it will evaluate the statement.
@@ -139,6 +140,7 @@ c.greeting = 'Hello';
 console.log(d.greeting);
 ~~~`,
     options: ["Hello", "Hey!", "undefined", "Refrence Error"],
+    answer: 0,
     solution: `In JavaScript, all objects interact by *reference* when setting them equal to each other.
 
 First, variable \`c\` holds a value to an object. Later, we assign \`d\` with the same reference that \`c\` has to the object.
