@@ -26,6 +26,9 @@ export default function Play() {
       setTypeText("Problem");
       setProblemInfo(generator(problemType, problemInfo));
       localStorage.removeItem("onSolution");
+
+      window.scrollTo(0, 0);
+      console.log("scrolled to the top");
       return;
     }
     if (selected === -1) {
@@ -52,6 +55,9 @@ export default function Play() {
       }
       setTypeText("Sorry, incorrect.");
     }
+
+    window.scrollTo(0, 0);
+    console.log("scrolled to the top");
   }
 
   function onOptionSelect(e) {
