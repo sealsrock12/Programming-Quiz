@@ -36,6 +36,22 @@ This is because we don't need to use the second \`int\` keyword there,
 because variable definitions in the same statement should have the same type.
 If we remove it, the code executes successfully and we get \`2 1\`.
 `
+  },
+  {
+    problem: "What are interfaces in Java?",
+    options: [
+      "Structures containing methods that can be shared across classes",
+      "A format for data structure types to be stored",
+      "Classes that other classes extend",
+      "A way for the Java program to communicate with the operating system"
+    ],
+    answer: 0,
+    solution: `Interfaces are structures that contain methods that can be shared accross classes. 
+In an ideal OOP design, the only way objects can communicate outside of themselves
+is through methods. You can \`implement\` an interface in a class to add these shared
+methods to them. Obviously, from the name, they are used to *interface* with other objects,
+so their methods are always public and the classes that interface them also become public
+(though they have private methods in them).`
   }
 ];
 
