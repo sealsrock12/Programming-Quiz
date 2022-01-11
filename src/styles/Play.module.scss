@@ -75,20 +75,25 @@ main {
 }
 
 .optionWrapper {
+  cursor: pointer;
   display: flex;
   align-items: center;
-  padding-bottom: 0.125rem;
-  padding-top: 0.125rem;
-  padding-left: 5px;
+  padding-bottom: 0.325rem;
+  padding-top: 0.325rem;
+  padding-left: 8px;
   padding-right: 5px;
-  border-radius: 5px;
+  border-radius: 0.7rem;
+  transition: 0.14s ease-in;
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    transition: 0.14s ease-in;
   }
 }
 
 .option {
+  cursor: pointer;
+
   width: 20px;
   height: 20px;
   border-radius: 25%;
@@ -128,6 +133,7 @@ main {
 
 .optionLabel {
   max-width: 64vw;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
