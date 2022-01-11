@@ -100,7 +100,7 @@ There is no value \`radius\` on that object, which returns \`NaN\`.`
     answer: 0,
     solution: `The unary plus tries to convert an operand to a number. true is 1, and false is 0.
 
-    The string 'Lydia' is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns false.`
+The string 'Lydia' is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns false.`
   },
   {
     problem: `Which one is true?
