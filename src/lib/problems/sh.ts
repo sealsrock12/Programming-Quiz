@@ -1,9 +1,9 @@
 const shProblems: Problem[] = [
   {
     problem: `In Bash, which options declare a variable?
-      1. \`foo=bar\`
-      2. \`foo = "bar"\`
-      3. \`foo="bar"\``,
+1. \`foo=bar\`
+2. \`foo = "bar"\`
+3. \`foo="bar"\``,
     options: ["1 and 2 only", "1 only", "1 and 3 only", "All three"],
     answer: 2,
     solution:

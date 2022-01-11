@@ -22,9 +22,10 @@ export function generator(
     });
   });
 
-  if (previous && flatProblems.includes(previous)) {
-    const i = flatProblems.indexOf(previous);
-    flatProblems.splice(i + 1);
+  if (previous) {
+    flatProblems = flatProblems.filter(
+      e => e.lang !== previous.lang || e.id !== previous.id
+    );
   }
 
   const index = Math.floor(Math.random() * flatProblems.length);

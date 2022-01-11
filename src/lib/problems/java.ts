@@ -22,7 +22,8 @@ public class Test {
     int a = 1, int b = 2;
     System.out.println(b + " " + a);
   }
-}~~~`,
+}
+~~~`,
     options: ["1 2", "2 1", "Compilation (`javac`)", "Execution (`java`)"],
     answer: 2,
     solution: `
