@@ -65,9 +65,9 @@ if 10 > x >= -1{
     answer: 1,
     solution:
       "Solution: As weird as it seems, snippets one and two are both valid. \
-  Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
-  as in python, you can use semicolons as separators, although there are not mandatory. \
-  Code three is incorrect as curly brackets were never a thing in python."
+Code one works as it follows python's syntax. Surprisingly, code two is also valid, \
+as in python, you can use semicolons as separators, although there are not mandatory. \
+Code three is incorrect as curly brackets were never a thing in python."
   },
   {
     problem: "What does the asterisk unary operator (*) do in Python?",

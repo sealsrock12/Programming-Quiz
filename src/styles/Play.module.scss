@@ -53,7 +53,6 @@ main {
   flex-direction: column;
   justify-content: center;
   margin-top: 3rem;
-  gap: 0.25rem;
 }
 
 .controls {
@@ -75,14 +74,13 @@ main {
 }
 
 .optionWrapper {
-  cursor: pointer;
   display: flex;
   align-items: center;
   padding-bottom: 0.325rem;
   padding-top: 0.325rem;
   padding-left: 8px;
   padding-right: 5px;
-  border-radius: 0.7rem;
+  border-radius: 5px;
   transition: 0.1s ease-in;
 
   &:hover {
@@ -92,8 +90,6 @@ main {
 }
 
 .option {
-  cursor: pointer;
-
   width: 20px;
   height: 20px;
   border-radius: 25%;
@@ -133,7 +129,6 @@ main {
 
 .optionLabel {
   max-width: 64vw;
-  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
