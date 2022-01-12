@@ -17,9 +17,9 @@ If you would like to contribute a problem, please post a JavaScript object in th
 
 #### Code Inside Problems/Options/Solutions
 
-We are using `Prism.js` for higlighting code. Make sure the value for your key you want code in is using backticks `` ` ``. Put the code block in a new line, with **no indents**. Put `~~~<programming language>` before the code, and `~~~` after it. See [here](https://prismjs.com/#supported-languages) for supproted languages. For one-line code blocks, simply surround the code using backticks `` ` ``. Escape them if the value already is using backticks. 
+We are using `Prism.js` for highlighting code. Make sure the value for your key you want code in is using backticks `` ` ``. Put the code block in a new line, with **no indents**. Put `~~~<programming language>` before the code, and `~~~` after it. See [here](https://prismjs.com/#supported-languages) for supported languages. For one-line code blocks, simply surround the code using backticks `` ` ``. Escape them if the value already is using backticks.
 
-Here is an example problem with code blocks: 
+Here is an example problem with code blocks:
 
 ```javascript
 {
@@ -37,6 +37,6 @@ console.log(x + y)
 }
 ```
 
-Be sure you also include the **programming language**. We are looking for language-specific  problems, at different levels. 
+Be sure you also include the **programming language**. We are looking for language-specific problems, at different levels.
 
 Thank you for your contribution!
