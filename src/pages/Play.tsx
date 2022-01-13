@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 import ReportErrorModal from "@/components/ReportErrorModal";
 import { AppContext } from "@/components/AppProvider";
+import AdsModal from "@/components/AdsModal";
 
 export default function Play() {
   const { problemType } = useContext(AppContext);
@@ -64,7 +65,7 @@ export default function Play() {
     setSelected(parseInt(e.currentTarget.value));
   }
 
-  const [problemInfo, setProblemInfo] = useState(() => {
+  const [problemInfo, setProblemInfo] = useState<PopulatedProblem>(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       if (localStorage.getItem("onSolution") === "true") {
         localStorage.removeItem("onSolution");
@@ -117,34 +118,6 @@ export default function Play() {
       <Menu playSelected />
 
       <main className={styles.main}>
-        {askedAds === null ? (
-          <section className={styles.askAds}>
-            Hello! If you would like to support us and make better content, we
-            would appreciate if you could enable ads on this site. We are
-            completely OK without them though.
-            <div className={styles.buttonsContainer}>
-              <Button
-                onClick={() => {
-                  setAskedAds("true");
-                  localStorage.setItem("settings-askedAds", "true");
-                  localStorage.setItem("settings-ads", "true");
-                }}
-              >
-                Sure
-              </Button>
-              <Button
-                onClick={() => {
-                  setAskedAds("false");
-                  localStorage.setItem("settings-askedAds", "false");
-                }}
-              >
-                No Thanks
-              </Button>
-            </div>
-          </section>
-        ) : (
-          ""
-        )}
         <div className={styles.problem}>
           <h1 className={styles.typeText}>
             {!onSolution
@@ -165,7 +138,11 @@ export default function Play() {
         >
           {problemInfo.options.map((option, index) => {
             return (
-              <div className={styles.optionWrapper} key={uuidv4()}>
+              <div
+                className={styles.optionWrapper}
+                key={uuidv4()}
+                onClick={() => setSelected(index)}
+              >
                 <input
                   type="radio"
                   id={`option-${index}`}
