@@ -1,6 +1,6 @@
 const shProblems: Problem[] = [
   {
-    problem: `In Bash, which options declare a variable?
+    problem: `Which options declare a variable?
 1. \`foo=bar\`
 2. \`foo = "bar"\`
 3. \`foo="bar"\``,
@@ -38,7 +38,7 @@ It must be surrounded in braces if it is over 10. In addition, $0 returns the \
 name of the file being called, so it is not an argument."
   },
   {
-    problem: "How do we write if-else statements in shell?",
+    problem: "Which option has a valid if statement",
     options: [
       `
 ~~~shell
@@ -67,7 +67,7 @@ then
   echo "Your name is Bob"
 ~~~`,
       `
-~~~bash
+~~~shell
 NAME="Bob"
 
 if ["$NAME" == "Bob"]
