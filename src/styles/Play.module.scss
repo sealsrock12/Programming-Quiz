@@ -131,6 +131,23 @@ main {
   max-width: 64vw;
 }
 
+.askAds {
+  border: 1px solid white;
+  padding: 1rem;
+  border-radius: 0.4rem;
+  position: absolute;
+  right: 2rem;
+  width: 21%;
+}
+
+.buttonsContainer {
+  margin: 1rem 1rem 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
 @media screen and (max-width: 600px) {
   main {
     width: 100vw;

@@ -104,6 +104,9 @@ export default function Play() {
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
   const [errorOpen, setErrorOpen] = useState(false);
+  const [askedAds, setAskedAds] = useState(
+    localStorage.getItem("settings-askedAds")
+  );
 
   return (
     <>
@@ -114,6 +117,34 @@ export default function Play() {
       <Menu playSelected />
 
       <main className={styles.main}>
+        {askedAds === null ? (
+          <section className={styles.askAds}>
+            Hello! If you would like to support us and make better content, we
+            would appreciate if you could enable ads on this site. We are
+            completely OK without them though.
+            <div className={styles.buttonsContainer}>
+              <Button
+                onClick={() => {
+                  setAskedAds("true");
+                  localStorage.setItem("settings-askedAds", "true");
+                  localStorage.setItem("settings-ads", "true");
+                }}
+              >
+                Sure
+              </Button>
+              <Button
+                onClick={() => {
+                  setAskedAds("false");
+                  localStorage.setItem("settings-askedAds", "false");
+                }}
+              >
+                No Thanks
+              </Button>
+            </div>
+          </section>
+        ) : (
+          ""
+        )}
         <div className={styles.problem}>
           <h1 className={styles.typeText}>
             {!onSolution
