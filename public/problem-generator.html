@@ -65,12 +65,12 @@
 
         document.querySelector("#generated").innerHTML = `
 {
-  problem: \`${x1.replace("\n", "\n\n")}\`,
+  problem: \`${x1.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`,
   options: [${x2.split("\n").map(option => {
-    return `\`${option.replace("\n", "\n\n")}\``;
+    return `\`${option.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\``;
   })}],
-  answer: ${x3.replace("\n", "\n\n")},
-  solution: \`${x4.replace("\n", "\n\n")}\`
+  answer: ${x3.replaceAll("\n", "\n\n").replaceAll("`", "\\`")},
+  solution: \`${x4.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`
 }`;
       }
     </script>
