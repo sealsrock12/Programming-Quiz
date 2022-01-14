@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem Generator</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .section-title {
+        font-weight: bold;
+      }
+      .textarea-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      textarea {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 75%;
+        height: 10rem;
+      }
+
+      #submit-wrapper {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+      }
+
+      #submit {
+        display: block;
+        border: 2px solid black;
+        padding: 0.5rem;
+        border-radius: 0.6rem;
+        text-align: center;
+        cursor: pointer;
+        width: 40%;
+        text-align: center;
+      }
+    </style>
+
+    <script>
+      window.onload = () => {
+        document.querySelector("#problem-input").focus();
+      };
+
+      function submit() {
+        const textareas = document.querySelectorAll("#problem-input");
+        const x1 = textareas[0].value;
+        const x2 = textareas[1].value;
+        const x3 = textareas[2].value;
+        const x4 = textareas[3].value;
+
+        document.querySelector("#generated").innerHTML = `
+{
+  problem: \`${x1.replace("\n", "\n\n")}\`,
+  options: [${x2.split("\n").map(option => {
+    return `\`${option.replace("\n", "\n\n")}\``;
+  })}],
+  answer: ${x3.replace("\n", "\n\n")},
+  solution: \`${x4.replace("\n", "\n\n")}\`
+}`;
+      }
+    </script>
+  </head>
+  <body>
+    <section>
+      <span class="section-title">Problem</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Options (One per line)</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Answer (index starting from 0)</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Solution</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <div id="submit-wrapper">
+      <span id="submit" onclick="submit()">Submit</span>
+    </div>
+
+    <pre id="generated"></pre>
+  </body>
+</html>
