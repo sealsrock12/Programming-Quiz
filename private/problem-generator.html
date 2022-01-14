@@ -31,32 +31,35 @@
         width: 75%;
         height: 10rem;
       }
-
-      #submit-wrapper {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-top: 2rem;
-      }
-
-      #submit {
-        display: block;
-        border: 2px solid black;
-        padding: 0.5rem;
-        border-radius: 0.6rem;
-        text-align: center;
-        cursor: pointer;
-        width: 40%;
-        text-align: center;
-      }
     </style>
 
     <script>
       window.onload = () => {
         document.querySelector("#problem-input").focus();
+
+        const textareas = document.querySelectorAll("#problem-input");
+        textareas[0].value = localStorage.getItem("1");
+        textareas[1].value = localStorage.getItem("2");
+        textareas[2].value = localStorage.getItem("3");
+        textareas[3].value = localStorage.getItem("4");
       };
 
-      function submit() {
+      setInterval(() => {
+        const textareas = document.querySelectorAll("#problem-input");
+        const x1 = textareas[0].value;
+        const x2 = textareas[1].value;
+        const x3 = textareas[2].value;
+        const x4 = textareas[3].value;
+
+        localStorage.setItem("1", x1);
+        localStorage.setItem("2", x2);
+        localStorage.setItem("3", x3);
+        localStorage.setItem("4", x4);
+
+        generate();
+      }, 400);
+
+      function generate() {
         const textareas = document.querySelectorAll("#problem-input");
         const x1 = textareas[0].value;
         const x2 = textareas[1].value;
@@ -103,10 +106,6 @@
         <textarea id="problem-input"></textarea>
       </span>
     </section>
-
-    <div id="submit-wrapper">
-      <span id="submit" onclick="submit()">Submit</span>
-    </div>
 
     <pre id="generated"></pre>
   </body>
