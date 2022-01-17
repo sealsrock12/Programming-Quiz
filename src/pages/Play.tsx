@@ -179,9 +179,7 @@ export default function Play() {
         />
 
         <div className={styles.controls}>
-          <Button title="submit" onClick={() => setErrorOpen(true)}>
-            REPORT ERROR
-          </Button>
+          <Button onClick={() => setErrorOpen(true)}>REPORT ERROR</Button>
 
           <Button className={styles.submit} title="submit" onClick={submit}>
             {onSolution ? "NEXT" : "SUBMIT"}

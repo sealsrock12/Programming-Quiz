@@ -5,6 +5,7 @@ import Toggle from "@/components/Toggle";
 import { langList, langToNiceName } from "@/lib/problems";
 
 import styles from "@/styles/Settings.module.scss";
+import "@/styles/bg-transition.scss";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
