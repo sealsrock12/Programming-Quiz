@@ -139,7 +139,7 @@ d = c;
 c.greeting = 'Hello';
 console.log(d.greeting);
 ~~~`,
-    options: ["Hello", "Hey!", "undefined", "Refrence Error"],
+    options: ["Hello", "Hey!", "undefined", "Reference Error"],
     answer: 0,
     solution: `In JavaScript, all objects interact by *reference* when setting them equal to each other.
 
