@@ -48,10 +48,10 @@ export default function Settings() {
           </div>
 
           {/* ads */}
-          <div className={styles.settingRow}>
+          {/* <div className={styles.settingRow}>
             <span>Ads</span>
             <Toggle setter={setAds} checked={ads === true} name="ads" />
-          </div>
+          </div> */}
 
           {/* toggle between lang */}
           <div className={styles.settingRow}>

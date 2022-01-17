@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 import ReportErrorModal from "@/components/ReportErrorModal";
 import { AppContext } from "@/components/AppProvider";
-import AdsModal from "@/components/AdsModal";
+// import AdsModal from "@/components/AdsModal";
 
 export default function Play() {
   const { problemType } = useContext(AppContext);
@@ -105,9 +105,9 @@ export default function Play() {
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
   const [errorOpen, setErrorOpen] = useState(false);
-  const [askedAds, setAskedAds] = useState(
-    localStorage.getItem("settings-askedAds")
-  );
+  // const [askedAds, setAskedAds] = useState(
+  //   localStorage.getItem("settings-askedAds")
+  // );
 
   return (
     <>
