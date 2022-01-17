@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from "uuid";
 import problems from "@/lib/problems";
 import ReportErrorModal from "@/components/ReportErrorModal";
 import { AppContext } from "@/components/AppProvider";
+import AdsModal from "@/components/AdsModal";
 
 export default function Play() {
   const { problemType } = useContext(AppContext);
@@ -64,7 +65,7 @@ export default function Play() {
     setSelected(parseInt(e.currentTarget.value));
   }
 
-  const [problemInfo, setProblemInfo] = useState(() => {
+  const [problemInfo, setProblemInfo] = useState<PopulatedProblem>(() => {
     if (localStorage.getItem("lang") && localStorage.getItem("id")) {
       if (localStorage.getItem("onSolution") === "true") {
         localStorage.removeItem("onSolution");
@@ -104,6 +105,9 @@ export default function Play() {
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
   const [errorOpen, setErrorOpen] = useState(false);
+  const [askedAds, setAskedAds] = useState(
+    localStorage.getItem("settings-askedAds")
+  );
 
   return (
     <>
@@ -134,7 +138,11 @@ export default function Play() {
         >
           {problemInfo.options.map((option, index) => {
             return (
-              <div className={styles.optionWrapper} key={uuidv4()}>
+              <div
+                className={styles.optionWrapper}
+                key={uuidv4()}
+                onClick={() => setSelected(index)}
+              >
                 <input
                   type="radio"
                   id={`option-${index}`}
@@ -171,12 +179,12 @@ export default function Play() {
         />
 
         <div className={styles.controls}>
-          <Button className={styles.submit} title="submit" onClick={submit}>
-            {onSolution ? "NEXT" : "SUBMIT"}
-          </Button>
-
           <Button title="submit" onClick={() => setErrorOpen(true)}>
             REPORT ERROR
+          </Button>
+
+          <Button className={styles.submit} title="submit" onClick={submit}>
+            {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
         </div>
       </main>

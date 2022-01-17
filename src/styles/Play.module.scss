@@ -20,9 +20,6 @@ main {
   }
 
   pre {
-    &:first-of-type {
-      margin-top: 3rem;
-    }
     max-width: 80vw;
     border-radius: 0.35rem;
   }
@@ -46,6 +43,10 @@ main {
 
 .problem {
   flex: 1;
+
+  pre:first-of-type {
+    margin-top: 3rem;
+  }
 }
 
 .optionsContainer {
@@ -62,7 +63,7 @@ main {
 }
 
 .submit {
-  margin-right: 1rem;
+  margin-left: 1rem;
 }
 
 .typeText {

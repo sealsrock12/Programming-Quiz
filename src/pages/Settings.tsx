@@ -25,7 +25,7 @@ function reset() {
 }
 
 export default function Settings() {
-  const { lightMode, setLightMode, problemType, setProblemType } =
+  const { lightMode, setLightMode, ads, setAds, problemType, setProblemType } =
     useContext(AppContext);
 
   return (
@@ -45,6 +45,12 @@ export default function Settings() {
               checked={lightMode === true}
               name="lightMode"
             />
+          </div>
+
+          {/* ads */}
+          <div className={styles.settingRow}>
+            <span>Ads</span>
+            <Toggle setter={setAds} checked={ads === true} name="ads" />
           </div>
 
           {/* toggle between lang */}

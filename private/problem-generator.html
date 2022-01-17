@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Problem Generator</title>
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .section-title {
+        font-weight: bold;
+      }
+      .textarea-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      textarea {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 75%;
+        height: 10rem;
+      }
+    </style>
+
+    <script>
+      window.onload = () => {
+        document.querySelector("#problem-input").focus();
+
+        const textareas = document.querySelectorAll("#problem-input");
+        textareas[0].value = localStorage.getItem("1");
+        textareas[1].value = localStorage.getItem("2");
+        textareas[2].value = localStorage.getItem("3");
+        textareas[3].value = localStorage.getItem("4");
+      };
+
+      setInterval(() => {
+        const textareas = document.querySelectorAll("#problem-input");
+        const x1 = textareas[0].value;
+        const x2 = textareas[1].value;
+        const x3 = textareas[2].value;
+        const x4 = textareas[3].value;
+
+        localStorage.setItem("1", x1);
+        localStorage.setItem("2", x2);
+        localStorage.setItem("3", x3);
+        localStorage.setItem("4", x4);
+
+        generate();
+      }, 400);
+
+      function generate() {
+        const textareas = document.querySelectorAll("#problem-input");
+        const x1 = textareas[0].value;
+        const x2 = textareas[1].value;
+        const x3 = textareas[2].value;
+        const x4 = textareas[3].value;
+
+        document.querySelector("#generated").innerHTML = `
+{
+  problem: \`${x1.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`,
+  options: [${x2.split("\n").map(option => {
+    return `\`${option.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\``;
+  })}],
+  answer: ${x3.replaceAll("\n", "\n\n").replaceAll("`", "\\`")},
+  solution: \`${x4.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`
+}`;
+      }
+    </script>
+  </head>
+  <body>
+    <section>
+      <span class="section-title">Problem</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Options (One per line)</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Answer (index starting from 0)</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <section>
+      <span class="section-title">Solution</span>
+      <span class="textarea-container">
+        <textarea id="problem-input"></textarea>
+      </span>
+    </section>
+
+    <pre id="generated"></pre>
+  </body>
+</html>
