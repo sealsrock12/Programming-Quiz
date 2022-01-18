@@ -3,27 +3,14 @@ import { useState, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styles from "@/styles/components/Modal.module.scss";
+import Button from "@/components/Button";
+import { modalStyles } from "@/lib/styles";
 
 const ReportErrorModal: FC<{
   problemInfo: PopulatedProblem;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => any;
 }> = ({ problemInfo, isOpen, setIsOpen }) => {
-  const customStyles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      borderRadius: "0.8rem",
-      transition: "0.3s ease",
-      backgroundColor: "var(--bg-color)",
-      color: "var(--text-color)"
-    }
-  };
-
   Modal.setAppElement("#app");
 
   function closeModal() {
@@ -35,7 +22,7 @@ const ReportErrorModal: FC<{
       isOpen={isOpen}
       onRequestClose={closeModal}
       closeTimeoutMS={300}
-      style={customStyles}
+      style={modalStyles}
       contentLabel="Report Error"
     >
       <div className="top">
@@ -43,23 +30,22 @@ const ReportErrorModal: FC<{
           <FontAwesomeIcon icon={faTimes} className={styles.closeIcon} />
         </button>
       </div>
-      <div>
-        <h2 className={styles.request}>
-          Please email the following to
-          <br />
-          <span className="bold"> Programming-Quiz@outlook.com</span>:
-        </h2>
 
-        <div className={styles.info}>
-          <div>
-            <span className="bold">Error: </span>
-            <br />
-            &lt;type error/bug here&gt;
-          </div>
+      <div className={styles.info}>
+        <h2>Please email the following to <span className="bold">programming.quiz.2022@gmail.com</span>:</h2>
+
+        <div>
+          <span className="bold">Error: </span>
           <br />
-          <span className="bold">Problem:</span> {problemInfo.lang},{" "}
-          {problemInfo.id}
+          &lt;insert error/bug here&gt;
         </div>
+        <br />
+        <span className="bold">Problem:</span> {problemInfo.lang}-
+        {problemInfo.id}
+      </div>
+
+      <div className={styles.bottomButtons}>
+        <Button onClick={closeModal}>Ok</Button>
       </div>
     </Modal>
   );
