@@ -39,6 +39,10 @@ export default function Play() {
       return;
     }
     if (selected === -1) {
+      setSubmitButtonShake(true);
+      setTimeout(() => {
+        setSubmitButtonShake(false);
+      }, 1000);
       return;
     }
 
@@ -73,8 +77,6 @@ export default function Play() {
 
   const [problemInfo, setProblemInfo] = useState<PopulatedProblem>(() => {
     if (typeof PROBLEM_DEV_LANG !== "undefined") {
-      console.log("adasdfadff");
-
       const newObject = problems[PROBLEM_DEV_LANG].at(-1);
       newObject!["id"] = "dev-problem";
       newObject!["lang"] = PROBLEM_DEV_LANG;
@@ -198,7 +200,9 @@ export default function Play() {
           <Button onClick={() => setErrorOpen(true)}>REPORT ERROR</Button>
 
           <Button
-            className={`${styles.submit} ${submitBttonShake ? "shake" : ""}`}
+            className={`${styles.submit} ${
+              submitBttonShake ? "submit-shake" : ""
+            }`}
             title="submit"
             onClick={submit}
           >
