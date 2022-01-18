@@ -3,6 +3,8 @@
   background-color: var(--bg-color);
   border: none;
   float: right;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .closeIcon {
@@ -22,18 +24,14 @@
   overflow: auto;
 }
 
-.info,
-.bottomButtons {
-  margin-top: 1rem;
-}
-
-.infoWithOptions {
+.info {
   margin: 20px;
 }
 
 .bottomButtons {
   display: flex;
   justify-content: center;
+  margin-top: 1rem;
 
   button {
     flex: 1;
