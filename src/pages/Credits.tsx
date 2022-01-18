@@ -91,6 +91,20 @@ export default function Credits() {
           </li>
           <li>Other problem writers who asked to remain anonymous</li>
         </ul>
+
+        <p className={styles.contribP}>Want to contribute?</p>
+
+        <section className={styles.contribSection}>
+          If you want to contribute a problem, please make a pull request{" "}
+          <a
+            href="https://github.com/Programming-Quiz/Programming-Quiz/pulls"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>
+          .
+        </section>
       </main>
     </>
   );
