@@ -31,6 +31,11 @@
         width: 75%;
         height: 10rem;
       }
+
+      #generated {
+        z-index: 100;
+        user-select: text !important;
+      }
     </style>
 
     <script>
@@ -68,13 +73,19 @@
 
         document.querySelector("#generated").innerHTML = `
 {
-  problem: \`${x1.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`,
+  problem: \`${x1.replaceAll("`", "\\`").replaceAll("${", "\\${")}\`,
   options: [${x2.split("\n").map(option => {
-    return `\`${option.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\``;
+    return `\`${option.replaceAll("`", "\\`").replaceAll("${", "\\${")}\``;
   })}],
-  answer: ${x3.replaceAll("\n", "\n\n").replaceAll("`", "\\`")},
-  solution: \`${x4.replaceAll("\n", "\n\n").replaceAll("`", "\\`")}\`
+  answer: ${x3.replaceAll("`", "\\`").replaceAll("${", "\\${")},
+  solution: \`${x4.replaceAll("`", "\\`").replaceAll("${", "\\${")}\`
 }`;
+      }
+
+      function copy() {
+        navigator.clipboard.writeText(
+          document.getElementById("generated").innerHTML
+        );
       }
     </script>
   </head>
@@ -107,6 +118,8 @@
       </span>
     </section>
 
-    <pre id="generated"></pre>
+    <button onclick="{copy()}">COPY</button>
+
+    <pre><code id="generated"></code></pre>
   </body>
 </html>
