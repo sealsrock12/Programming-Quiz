@@ -105,6 +105,7 @@ export default function Play() {
   const [selected, setSelected] = useState(-1);
   const [typeText, setTypeText] = useState("Problem");
   const [errorOpen, setErrorOpen] = useState(false);
+  const [submitBttonShake, setSubmitButtonShake] = useState(false);
   // const [askedAds, setAskedAds] = useState(
   //   localStorage.getItem("settings-askedAds")
   // );
@@ -181,7 +182,11 @@ export default function Play() {
         <div className={styles.controls}>
           <Button onClick={() => setErrorOpen(true)}>REPORT ERROR</Button>
 
-          <Button className={styles.submit} title="submit" onClick={submit}>
+          <Button
+            className={`${styles.submit} ${submitBttonShake ? "shake" : ""}`}
+            title="submit"
+            onClick={submit}
+          >
             {onSolution ? "NEXT" : "SUBMIT"}
           </Button>
         </div>
