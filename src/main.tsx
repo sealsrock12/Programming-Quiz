@@ -10,7 +10,7 @@ const Settings = lazy(() => import("@/pages/Settings"));
 const Stats = lazy(() => import("@/pages/Stats"));
 const Credits = lazy(() => import("@/pages/Credits"));
 const NotFound = lazy(() => import("@/pages/404"));
-// const AdsModal = lazy(() => import("@/components/AdsModal"));
+const AdsModal = lazy(() => import("@/components/AdsModal"));
 
 import Footer from "@/components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -22,7 +22,7 @@ ReactDOM.render(
   <AppProvider>
     <Suspense fallback={renderLoader()}>
       <Router>
-        {/* <AdsModal /> */}
+        <AdsModal />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/play" element={<Play />} />

@@ -3,27 +3,11 @@ import { useContext, useState } from "react";
 import Button from "@/components/Button";
 import { AppContext } from "./AppProvider";
 import styles from "@/styles/components/Modal.module.scss";
+import { modalStyles } from "@/lib/styles";
 
 const AdsModal = () => {
   const { ads, setAds } = useContext(AppContext);
   const [open, setOpen] = useState(ads === null);
-  const customStyles: Modal.Styles = {
-    content: {
-      top: "50%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(-50%, -50%)",
-      borderRadius: "0.8rem",
-      transition: "0.3s ease",
-      backgroundColor: "var(--bg-color)",
-      color: "var(--text-color)",
-      maxWidth: "min(100vw, 70ch)",
-      padding: "0",
-      borderColor: "var(--border)"
-    }
-  };
 
   Modal.setAppElement("#app");
 
@@ -37,10 +21,10 @@ const AdsModal = () => {
       isOpen={open}
       onRequestClose={closeModal}
       closeTimeoutMS={300}
-      style={customStyles}
+      style={modalStyles}
       contentLabel="Display Ads?"
     >
-      <div className={styles.infoWithOptions}>
+      <div className={styles.info}>
         <p>
           Hello! If you would like to support us and make better content, we
           would appreciate if you could enable ads on this site. We are

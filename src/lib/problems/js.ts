@@ -146,6 +146,221 @@ console.log(d.greeting);
 First, variable \`c\` holds a value to an object. Later, we assign \`d\` with the same reference that \`c\` has to the object.
 
 When you change one object, you change all of them.`
+  },
+  {
+    problem: `~~~javascript
+let a = 3;
+let b = new Number(3);
+let c = 3;
+
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
+~~~`,
+    options: [
+      `\`true\` \`false\` \`true\``,
+      `\`false\` \`false\` \`true\``,
+      `\`true\` \`false\` \`false\``,
+      `\`false\` \`true\` \`true\``
+    ],
+    answer: 2,
+    solution: `\`new Number()\` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+
+When we use the \`==\` operator, it only checks whether it has the same _value_. They both have the value of \`3\`, so it returns \`true\`.
+
+However, when we use the \`===\` operator, both value _and_ type should be the same. It's not: \`new Number()\` is not a number, it's an **object**. Both return \`false.\``
+  },
+
+  {
+    problem: `~~~javascript
+let a = 3;
+let b = new Number(3);
+let c = 3;
+
+console.log(a == b);
+console.log(a === b);
+console.log(b === c);
+~~~`,
+    options: [
+      `\`true\` \`false\` \`true\``,
+      `\`false\` \`false\` \`true\``,
+      `\`true\` \`false\` \`false\``,
+      `\`false\` \`true\` \`true\``
+    ],
+    answer: 2,
+    solution: `\`new Number()\` is a built-in function constructor. Although it looks like a number, it's not really a number: it has a bunch of extra features and is an object.
+
+When we use the \`==\` operator, it only checks whether it has the same _value_. They both have the value of \`3\`, so it returns \`true\`.
+
+However, when we use the \`===\` operator, both value _and_ type should be the same. It's not: \`new Number()\` is not a number, it's an *object*. Both return \`false.\``
+  },
+  {
+    problem: `What is the output?
+  
+  ~~~javascript
+  class Chameleon {
+    static colorChange(newColor) {
+      this.newColor = newColor;
+      return this.newColor;
+    }
+  
+    constructor({ newColor = 'green' } = {}) {
+      this.newColor = newColor;
+    }
+  }
+  
+  const freddie = new Chameleon({ newColor: 'purple' });
+  console.log(freddie.colorChange('orange'));
+  ~~~`,
+    options: [`\`orange\``, `\`purple\``, `\`green\``, `\`TypeError\``],
+    answer: 3,
+    solution: `The \`colorChange\` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since \`freddie\` is an instance of class Chameleon, the function cannot be called upon it. A \`TypeError\` is thrown.`
+  },
+  {
+    problem: `What is the output?
+
+~~~javascript
+class Chameleon {
+  static colorChange(newColor) {
+    this.newColor = newColor;
+    return this.newColor;
+  }
+
+  constructor({ newColor = 'green' } = {}) {
+    this.newColor = newColor;
+  }
+}
+
+const freddie = new Chameleon({ newColor: 'purple' });
+console.log(freddie.colorChange('orange'));
+~~~`,
+    options: [`\`orange\``, `\`purple\``, `\`green\``, `\`TypeError\``],
+    answer: 3,
+    solution: `The \`colorChange\` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children or called upon class instances. Since \`freddie\` is an instance of class Chameleon, the function cannot be called upon it. A \`TypeError\` is thrown.`
+  },
+
+  {
+    problem: `What is the output?
+
+~~~javascript
+let greeting;
+greetign = {}; // Typo!
+console.log(greetign);
+~~~`,
+    options: [
+      `\`{}\``,
+      `\`ReferenceError: greetign is not defined\``,
+      `\`undefined\``
+    ],
+    answer: 0,
+    solution: `It logs the object, because we just created an empty object on the global object! When we mistyped \`greeting\` as \`greetign\`, the JS interpreter actually saw this as \`global.greetign = {}\` (or \`window.greetign = {}\` in a browser).
+
+In order to avoid this, we can use \`"use strict"\`. This makes sure that you have declared a variable before setting it equal to anything.`
+  },
+
+  {
+    problem: `What happens when we do this?
+
+~~~javascript
+function bark() {
+  console.log('Woof!');
+}
+
+bark.animal = 'dog';
+~~~`,
+    options: [
+      `Nothing, this is totally fine!`,
+      `\`SyntaxError\`. You cannot add properties to a function this way.`,
+      `\`"Woof"\` gets logged.`,
+      `\`ReferenceError\``
+    ],
+    answer: 0,
+    solution: `This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
+
+A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.`
+  },
+
+  {
+    problem: `What is the output?
+
+~~~javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const member = new Person('Lydia', 'Hallie');
+Person.getFullName = function() {
+  return \`\${this.firstName} \${this.lastName}\`;
+};
+
+console.log(member.getFullName());
+~~~`,
+    options: [
+      `\`TypeError\``,
+      `\`SyntaxError\``,
+      `\`Lydia Hallie\``,
+      `\`undefined\` \`undefined\``
+    ],
+    answer: 0,
+    solution: `In JavaScript, functions are objects, and therefore, the method \`getFullName\` gets added to the constructor function object itself. For that reason, we can call \`Person.getFullName()\`, but \`member.getFullName\` throws a \`TypeError\`. 
+
+If you want a method to be available to all object instances, you have to add it to the prototype property:
+
+~~~javascript
+Person.prototype.getFullName = function() {
+  return \`\${this.firstName} \${this.lastName}\`;
+};
+~~~`
+  },
+
+  {
+    problem: `What's the output?
+
+~~~javascript
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+}
+
+const lydia = new Person('Lydia', 'Hallie');
+const sarah = Person('Sarah', 'Smith');
+
+console.log(lydia);
+console.log(sarah);
+~~~`,
+    options: [
+      `\`Person {firstName: "Lydia", lastName: "Hallie"}\` and \`undefined\``,
+      `\`Person {firstName: "Lydia", lastName: "Hallie"}\` and \`Person {firstName: "Sarah", lastName: "Smith"}\``,
+      `\`Person {firstName: "Lydia", lastName: "Hallie"}\` and \`{}\``,
+      `\`Person {firstName: "Lydia", lastName: "Hallie"}\` and \`ReferenceError\``
+    ],
+    answer: 0,
+    solution: `For \`sarah\`, we didn't use the \`new\` keyword. When using \`new\`, \`this\` refers to the new empty object we create. However, if you don't add \`new\`, \`this\` refers to the **global object**!
+
+We said that \`this.firstName\` equals \`"Sarah"\` and \`this.lastName\` equals \`"Smith"\`. What we actually did, is defining \`global.firstName = 'Sarah'\` and \`global.lastName = 'Smith'\`. \`sarah\` itself is left \`undefined\`, since we don't return a value from the \`Person\` function.`
+  },
+  {
+    problem: `What are the three phases of event propagation?`,
+    options: [
+      `Target &gt; Capturing &gt; Bubbling`,
+      `Bubbling &gt; Target &gt; Capturing`,
+      `Target &gt; Bubbling &gt; Capturing`,
+      `Capturing &gt; Target &gt; Bubbling`
+    ],
+    answer: 3,
+    solution: `During the **capturing** phase, the event goes through the ancestor elements down to the target element. It then reaches the **target** element, and **bubbling** begins.
+
+![image](/img/js-18.png)
+
+`
+  },
+  {
+    problem: `True or false: All object have prototypes.`,
+    options: [`True`, `False`],
+    answer: 1,
+    solution: `All objects have prototypes, except for the *base object*. The base object is the object created by the user, or an object that is created using the \`new\` keyword. The base object has access to some methods and properties, such as \`.toString\`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
+  `
   }
 ];
 
