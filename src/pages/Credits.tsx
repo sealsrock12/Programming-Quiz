@@ -95,13 +95,21 @@ export default function Credits() {
         <p className={styles.contribP}>Want to contribute?</p>
 
         <section className={styles.contribSection}>
-          If you want to contribute a problem, please make a pull request{" "}
+          If you want to add a problem, please make a pull request{" "}
           <a
             href="https://github.com/Programming-Quiz/Programming-Quiz/pulls"
             target="_blank"
             rel="noreferrer"
           >
             here
+          </a>{" "}
+          using{" "}
+          <a
+            href="https://github.com/Programming-Quiz/Programming-Quiz/blob/master/.github/pull_request_template.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            this format
           </a>
           .
         </section>
