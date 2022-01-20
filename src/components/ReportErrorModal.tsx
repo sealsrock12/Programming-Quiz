@@ -32,8 +32,10 @@ const ReportErrorModal: FC<{
       </div>
 
       <div className={styles.info}>
-        <h2>Please email the following to <span className="bold">programming.quiz.2022@gmail.com</span>:</h2>
-
+        <h2 className={styles.emailReq}>
+          Please email the following to{" "}
+          <span className="bold">programming.quiz.2022@gmail.com</span>:
+        </h2>
         <div>
           <span className="bold">Error: </span>
           <br />
@@ -45,7 +47,7 @@ const ReportErrorModal: FC<{
       </div>
 
       <div className={styles.bottomButtons}>
-        <Button onClick={closeModal}>Ok</Button>
+        <Button onClick={closeModal}>OK</Button>
       </div>
     </Modal>
   );
