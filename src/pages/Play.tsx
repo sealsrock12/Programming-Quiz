@@ -21,7 +21,7 @@ import { AppContext } from "@/components/AppProvider";
   For developing problems.
   The program will generate the last object in lib/problems/<lang>.ts
 */
-const PROBLEM_DEV_LANG = "js";
+// const PROBLEM_DEV_LANG = "js";
 
 export default function Play() {
   const { problemType } = useContext(AppContext);
