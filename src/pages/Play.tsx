@@ -21,7 +21,7 @@ import { AppContext } from "@/components/AppProvider";
   For developing problems.
   The program will generate the last object in lib/problems/<lang>.ts
 */
-// const PROBLEM_DEV_LANG = "js";
+const PROBLEM_DEV_LANG = null;
 
 export default function Play() {
   const { problemType } = useContext(AppContext);
@@ -76,7 +76,8 @@ export default function Play() {
   }
 
   const [problemInfo, setProblemInfo] = useState<PopulatedProblem>(() => {
-    if (typeof PROBLEM_DEV_LANG !== "undefined") {
+    if (PROBLEM_DEV_LANG) {
+      // @ts-ignore
       const newObject = problems[PROBLEM_DEV_LANG].at(-1);
       newObject!["id"] = "dev-problem";
       newObject!["lang"] = PROBLEM_DEV_LANG;
