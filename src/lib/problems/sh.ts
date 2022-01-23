@@ -53,7 +53,7 @@ fi
 ~~~shell
 NAME="Bob"
 
-if ["$NAME" == "Bob"]
+if [ $NAME == "Bob" ]
 then
   echo "Your name is Bob"
 fi
@@ -70,7 +70,7 @@ then
 ~~~shell
 NAME="Bob"
 
-if ["$NAME" == "Bob"]
+if [ $NAME == "Bob" ]
 then
   echo "Your name is Bob"
 ~~~`
