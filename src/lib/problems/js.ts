@@ -361,6 +361,102 @@ We said that \`this.firstName\` equals \`"Sarah"\` and \`this.lastName\` equals 
     answer: 1,
     solution: `All objects have prototypes, except for the *base object*. The base object is the object created by the user, or an object that is created using the \`new\` keyword. The base object has access to some methods and properties, such as \`.toString\`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
   `
+  },
+  {
+    problem: `What's the output?
+
+~~~javascript
+function sum(a, b) {
+  return a + b;
+}
+
+sum(1, '2');
+~~~`,
+    options: [`\`NaN\``, `\`TypeError\``, `\`"12"\``, `\`3\``],
+    answer: 2,
+    solution: `JavaScript is a *dynamically typed language*: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
+
+In this example, JavaScript converts the number \`1\` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (\`1\`) and a string type (\`'2'\`), the number is treated as a string. We can concatenate strings like \`"Hello" + "World"\`, so what's happening here is \`"1" + "2"\` which returns \`"12"\`.`
+  },
+  {
+    problem: `What's the output?
+
+~~~javascript
+let number = 0;
+console.log(number++);
+console.log(++number);
+console.log(number);
+~~~`,
+    options: [
+      `\`1\` \`1\` \`2\``,
+      `\`1\` \`2\` \`2\``,
+      `\`0\` \`2\` \`2\``,
+      `\`0\` \`1\` \`2\``
+    ],
+    answer: 2,
+    solution: `The *postfix* unary operator \`++\`:
+
+1. Returns the value (this returns \`0\`)
+2. Increments the value (number is now \`1\`)
+
+The *prefix* unary operator \`++\`:
+
+1. Increments the value (number is now \`2\`)
+2. Returns the value (this returns \`2\`)
+
+This returns \`0 2 2\`.`
+  },
+  {
+    problem: `What's the output?
+
+~~~javascript
+function getPersonInfo(one, two, three) {
+  console.log(one);
+  console.log(two);
+  console.log(three);
+}
+
+const person = 'Lydia';
+const age = 21;
+
+getPersonInfo\`\${person} is \${age} years old\`;
+~~~`,
+    options: [
+      `\`"Lydia"\` \`21\` \`["", " is ", " years old"]\``,
+      `\`["", " is ", " years old"]\` \`"Lydia"\` \`21\``,
+      `\`"Lydia"\` \`["", " is ", " years old"]\` \`21\``,
+      `\`21\` \`"Lydia"\` \`["", " is ", " years old"]\``
+    ],
+    answer: 1,
+    solution: `If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!`
+  },
+  {
+    problem: `What's the output?
+
+~~~javascript
+function checkAge(data) {
+  if (data === { age: 18 }) {
+    console.log('You are an adult!');
+  } else if (data == { age: 18 }) {
+    console.log('You are still an adult.');
+  } else {
+    console.log(\`Hmm.. You don't have an age I guess\`);
+  }
+}
+
+checkAge({ age: 18 });
+~~~`,
+    options: [
+      `\`You are an adult!\``,
+      `\`You are still an adult.\``,
+      `\`Hmm.. You don't have an age I guess\``
+    ],
+    answer: 2,
+    solution: `When testing equality, primitives are compared by their *value*, while objects are compared by their *reference*. JavaScript checks if the objects have a reference to the same location in memory.
+
+The two objects that we are comparing don't have that: the object we passed as a parameter refers to a different location in memory than the object we used in order to check equality.
+
+This is why both \`{ age: 18 } === { age: 18 }\` and \`{ age: 18 } == { age: 18 }\` return \`false\`.`
   }
 ];
 
