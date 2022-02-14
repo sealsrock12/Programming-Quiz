@@ -97,7 +97,7 @@ export default function Credits() {
         <section className={styles.contribSection}>
           If you want to add a problem, please make a pull request{" "}
           <a
-            href="https://github.com/Programming-Quiz/Programming-Quiz/pulls"
+            href="https://github.com/SealsRock12/Programming-Quiz/pulls"
             target="_blank"
             rel="noreferrer"
           >
@@ -105,7 +105,7 @@ export default function Credits() {
           </a>{" "}
           using{" "}
           <a
-            href="https://github.com/Programming-Quiz/Programming-Quiz/blob/master/.github/pull_request_template.md"
+            href="https://github.com/SealsRock12/Programming-Quiz/blob/master/.github/pull_request_template.md"
             target="_blank"
             rel="noreferrer"
           >

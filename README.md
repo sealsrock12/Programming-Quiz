@@ -10,10 +10,10 @@ See [here](https://programming-quiz.pages.dev/credits).
 
 ```
 # HTTPS
-git clone https://github.com/Programming-Quiz/Programming-Quiz.git
+git clone https://github.com/SealsRock12/Programming-Quiz.git
 
 # SSH
-git clone git@github.com:Programming-Quiz/Programming-Quiz.git
+git clone git@github.com:SealsRock12/Programming-Quiz.git
 
 yarn install
 yarn dev
